@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/jquery/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_fran_programacion2_trabajofinal_domain_User" items="${users}" z="r7jLQVxlYWX/JJkXv508xDkLiEI=">
+        <table:table data="${users}" id="l_fran_programacion2_trabajofinal_domain_User" path="/users" z="+dWik/G36OsVqsEej4BklAP250U=">
+            <table:column id="c_fran_programacion2_trabajofinal_domain_User_firstName" property="firstName" z="KX30VjOk3auZkQEko3s8HSoc8HI="/>
+            <table:column id="c_fran_programacion2_trabajofinal_domain_User_lastName" property="lastName" z="99Tgix86G4is6rZFxBhyU6JVKso="/>
+            <table:column id="c_fran_programacion2_trabajofinal_domain_User_emailAddress" property="emailAddress" z="5L1gVEj0gTjf9MXTYuV2WhGEXxM="/>
+            <table:column id="c_fran_programacion2_trabajofinal_domain_User_password" property="password" z="ecJulvTKZvvVZkAYrCP6UiUAC/w="/>
+            <table:column date="true" dateTimePattern="${user_activationdate_date_format}" id="c_fran_programacion2_trabajofinal_domain_User_activationDate" property="activationDate" z="kI6+myZOcZKaoelWGEljT6SG3Dk="/>
+            <table:column id="c_fran_programacion2_trabajofinal_domain_User_activationKey" property="activationKey" z="kOHgRAk891nPRtbotV0YC4Uk+9k="/>
+        </table:table>
+    </page:list>
+</div>

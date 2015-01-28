@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/jquery/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_fran_programacion2_trabajofinal_domain_User" object="${user}" path="/users" z="WZRFm/6XLKh1b1D3etpFcIii7yI=">
+        <field:display field="firstName" id="s_fran_programacion2_trabajofinal_domain_User_firstName" object="${user}" z="fCwJ/L7wfc/VXBNjL3aXq5JLj28="/>
+        <field:display field="lastName" id="s_fran_programacion2_trabajofinal_domain_User_lastName" object="${user}" z="ew7XOxtCE0CA5UipAKONqqPdslY="/>
+        <field:display field="emailAddress" id="s_fran_programacion2_trabajofinal_domain_User_emailAddress" object="${user}" z="J4W6q6BQwNLtJIL7+s4bbEOEzwU="/>
+        <field:display field="password" id="s_fran_programacion2_trabajofinal_domain_User_password" object="${user}" z="xbtx+kEQaPp/c7bpFBlqA+SGWCU="/>
+        <field:display date="true" dateTimePattern="${user_activationdate_date_format}" field="activationDate" id="s_fran_programacion2_trabajofinal_domain_User_activationDate" object="${user}" z="4VSkqj6yydrhBW5GA1+okwT1oH4="/>
+        <field:display field="activationKey" id="s_fran_programacion2_trabajofinal_domain_User_activationKey" object="${user}" z="vQeVIvhgTt6MGj2hwKK1mvN2mS8="/>
+        <field:display field="enabled" id="s_fran_programacion2_trabajofinal_domain_User_enabled" object="${user}" z="IvqvuhBfhw/Fx2AXh7N6ypackoc="/>
+        <field:display field="locked" id="s_fran_programacion2_trabajofinal_domain_User_locked" object="${user}" z="YRyiJd/6Hhz+CMteJ0oFH8k7QlI="/>
+    </page:show>
+</div>

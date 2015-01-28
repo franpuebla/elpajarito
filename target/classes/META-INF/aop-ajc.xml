@@ -1,0 +1,26 @@
+<aspectj>
+<aspects>
+<aspect name="fran.programacion2.trabajofinal.domain.Role_Roo_Configurable"/>
+<aspect name="fran.programacion2.trabajofinal.domain.UserRole_Roo_Jpa_ActiveRecord"/>
+<aspect name="fran.programacion2.trabajofinal.domain.User_Roo_JavaBean"/>
+<aspect name="fran.programacion2.trabajofinal.domain.UserRole_Roo_ToString"/>
+<aspect name="fran.programacion2.trabajofinal.domain.UserRole_Roo_JavaBean"/>
+<aspect name="fran.programacion2.trabajofinal.web.UserRoleController_Roo_Controller"/>
+<aspect name="fran.programacion2.trabajofinal.domain.User_Roo_Finder"/>
+<aspect name="fran.programacion2.trabajofinal.domain.UserRole_Roo_Finder"/>
+<aspect name="fran.programacion2.trabajofinal.domain.Role_Roo_JavaBean"/>
+<aspect name="fran.programacion2.trabajofinal.domain.Role_Roo_Jpa_Entity"/>
+<aspect name="fran.programacion2.trabajofinal.web.UserController_Roo_Controller"/>
+<aspect name="fran.programacion2.trabajofinal.domain.Role_Roo_ToString"/>
+<aspect name="fran.programacion2.trabajofinal.domain.User_Roo_ToString"/>
+<aspect name="fran.programacion2.trabajofinal.web.RoleController_Roo_Controller"/>
+<aspect name="fran.programacion2.trabajofinal.domain.UserRole_Roo_Jpa_Entity"/>
+<aspect name="fran.programacion2.trabajofinal.domain.User_Roo_Jpa_Entity"/>
+<aspect name="fran.programacion2.trabajofinal.domain.Role_Roo_Jpa_ActiveRecord"/>
+<aspect name="fran.programacion2.trabajofinal.domain.User_Roo_Jpa_ActiveRecord"/>
+<aspect name="fran.programacion2.trabajofinal.domain.UserRole_Roo_Configurable"/>
+<aspect name="fran.programacion2.trabajofinal.web.ApplicationConversionServiceFactoryBean_Roo_ConversionService"/>
+<aspect name="fran.programacion2.trabajofinal.domain.User_Roo_Configurable"/>
+</aspects>
+</aspectj>
+

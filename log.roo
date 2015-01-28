@@ -1,0 +1,65 @@
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2015-01-27 21:52:39
+project --topLevelPackage fran.programacion2.trabajofinal --projectName elpajarito --java 7 --packaging WAR
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2015-01-27 21:52:53
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2015-01-27 22:01:12
+jpa setup --database MYSQL --provider HIBERNATE --userName root --hostName localhost --databaseName elpajarito
+web mvc setup
+web mvc all --package ~.web
+entity jpa --class ~.domain.User --testAutomatically --permitReservedWords
+field string --fieldName firstName --sizeMin 1 --notNull
+field string --fieldName lastName --sizeMin 1 --notNull
+field string --fieldName emailAddress --sizeMin 1 --notNull --unique
+field string --fieldName password --sizeMin 1 --notNull
+field date --fieldName activationDate --type java.util.Date
+field string --fieldName activationKey
+field boolean --fieldName enabled
+field boolean --fieldName locked
+entity jpa --class ~.domain.Role --testAutomatically --permitReservedWords
+field string --fieldName roleName --sizeMin 1 --notNull --unique
+field string --fieldName roleDescription --sizeMin --sizeMax 200 --notNull
+entity jpa --class ~.domain.UserRole --testAutomatically
+field reference --fieldName userEntry --type ~.domain.User --notNull
+field reference --fieldName roleEntry --type ~.domain.Role --notNull
+finder add findUsersByEmailAddress --class ~.domain.User
+finder add findUsersByActivationKeyAndEmailAddress --class ~.domain.User
+finder add findUserRolesByUserEntry --class ~.domain.UserRole
+web mvc scaffold --class ~.web.UserController --backingType ~.domain.User
+web mvc scaffold --class ~.web.RoleController --backingType ~.domain.Role
+web mvc scaffold --class ~.web.UserRoleController --backingType ~.domain.UserRole
+security setup
+email sender setup --hostServer smtp.gmail.com --port 587 --protocol SMTP --username rohitsghatoltest@gmail.com --password password4me
+email template setup --from rohitsghatoltest@gmail.com --subject "Password Recovery"
+entity jpa --class ~.domain.User --testAutomatically --permitReservedWords
+field string --fieldName firstName --sizeMin 1 --notNull
+field string --fieldName lastName --sizeMin 1 --notNull
+field string --fieldName emailAddress --sizeMin 1 --notNull --unique
+field string --fieldName password --sizeMin 1 --notNull
+field date --fieldName activationDate --type java.util.Date 
+field string --fieldName activationKey 
+field boolean --fieldName enabled 
+field boolean --fieldName locked 
+entity jpa --class ~.domain.Role --testAutomatically --permitReservedWords
+field string --fieldName roleName --sizeMin 1 --notNull --unique
+field string --fieldName roleDescription --sizeMin --sizeMax 200 --notNull
+entity jpa --class ~.domain.UserRole --testAutomatically
+field reference --fieldName userEntry --type ~.domain.User --notNull
+field reference --fieldName roleEntry --type ~.domain.Role --notNull
+finder add findUsersByEmailAddress --class ~.domain.User
+finder add findUsersByActivationKeyAndEmailAddress --class ~.domain.User
+finder add findUserRolesByUserEntry --class ~.domain.UserRole
+web mvc scaffold --class ~.web.UserController --backingType ~.domain.User
+web mvc scaffold --class ~.web.RoleController --backingType ~.domain.Role
+web mvc scaffold --class ~.web.UserRoleController --backingType ~.domain.UserRole
+email sender setup --hostServer smtp.gmail.com --port 587 --protocol SMTP --username rohitsghatoltest@gmail.com --password password4me
+email template setup --from rohitsghatoltest@gmail.com --subject "Password Recovery"
+typicalsecurity setup
+// [failed] focus --class ~.domain.UserModel
+finder add findUserModelsByEmailAddress
+finder add findUserModelsByActivationKeyAndEmailAddress
+// [failed] field date --type java.util.Date --fieldName activationDate
+// [failed] focus --class ~.domain.UserRoleModel
+finder add findUserRoleModelsByUserEntry
+web mvc jquery setup
+web mvc jquery all
+web mvc bootstrap setup
+web mvc all --package ~.web

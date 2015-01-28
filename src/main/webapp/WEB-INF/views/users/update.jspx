@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/jquery/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/jquery/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_fran_programacion2_trabajofinal_domain_User" modelAttribute="user" path="/users" versionField="Version" z="+YeQoFj2cvSjT4hVQQ2jOht/XE4=">
+        <field:input field="firstName" id="c_fran_programacion2_trabajofinal_domain_User_firstName" min="1" required="true" z="1E9+KhmwF8zTwljPIUWw2whi2bo="/>
+        <field:input field="lastName" id="c_fran_programacion2_trabajofinal_domain_User_lastName" min="1" required="true" z="chfdWnvmMiOppJl2CSf6NFezups="/>
+        <field:input field="emailAddress" id="c_fran_programacion2_trabajofinal_domain_User_emailAddress" min="1" required="true" validationMessageCode="field_invalid_email" z="wgq4fFDhGyvDygKo2O5+cVhWONs="/>
+        <field:input field="password" id="c_fran_programacion2_trabajofinal_domain_User_password" min="1" required="true" z="zVwgYiYQSXZZ7iY/ehgEyGLFUfg="/>
+        <field:datetime dateTimePattern="${user_activationdate_date_format}" field="activationDate" id="c_fran_programacion2_trabajofinal_domain_User_activationDate" z="jOrv/lC+ph2AgD3d4RNan2URK+g="/>
+        <field:input field="activationKey" id="c_fran_programacion2_trabajofinal_domain_User_activationKey" z="u3kcIpbLbdn4TqgkM+FC4muS/ZM="/>
+        <field:checkbox field="enabled" id="c_fran_programacion2_trabajofinal_domain_User_enabled" z="Tw6mI0ppXYJLV65ja8TNUAfilXM="/>
+        <field:checkbox field="locked" id="c_fran_programacion2_trabajofinal_domain_User_locked" z="tG3hta2xb1YSZuRswNa56AQBGcU="/>
+    </form:update>
+</div>
