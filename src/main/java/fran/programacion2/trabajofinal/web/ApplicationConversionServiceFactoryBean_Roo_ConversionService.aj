@@ -3,6 +3,7 @@
 
 package fran.programacion2.trabajofinal.web;
 
+import fran.programacion2.trabajofinal.domain.Mensaje;
 import fran.programacion2.trabajofinal.domain.Role;
 import fran.programacion2.trabajofinal.domain.User;
 import fran.programacion2.trabajofinal.domain.UserRole;
@@ -14,6 +15,30 @@ import org.springframework.format.FormatterRegistry;
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
+    
+    public Converter<Mensaje, String> ApplicationConversionServiceFactoryBean.getMensajeToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<fran.programacion2.trabajofinal.domain.Mensaje, java.lang.String>() {
+            public String convert(Mensaje mensaje) {
+                return new StringBuilder().append(mensaje.getTexto()).append(' ').append(mensaje.getFechaPublicacion()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Mensaje> ApplicationConversionServiceFactoryBean.getIdToMensajeConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, fran.programacion2.trabajofinal.domain.Mensaje>() {
+            public fran.programacion2.trabajofinal.domain.Mensaje convert(java.lang.Long id) {
+                return Mensaje.findMensaje(id);
+            }
+        };
+    }
+    
+    public Converter<String, Mensaje> ApplicationConversionServiceFactoryBean.getStringToMensajeConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, fran.programacion2.trabajofinal.domain.Mensaje>() {
+            public fran.programacion2.trabajofinal.domain.Mensaje convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Mensaje.class);
+            }
+        };
+    }
     
     public Converter<Role, String> ApplicationConversionServiceFactoryBean.getRoleToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<fran.programacion2.trabajofinal.domain.Role, java.lang.String>() {
@@ -88,6 +113,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
+        registry.addConverter(getMensajeToStringConverter());
+        registry.addConverter(getIdToMensajeConverter());
+        registry.addConverter(getStringToMensajeConverter());
         registry.addConverter(getRoleToStringConverter());
         registry.addConverter(getIdToRoleConverter());
         registry.addConverter(getStringToRoleConverter());

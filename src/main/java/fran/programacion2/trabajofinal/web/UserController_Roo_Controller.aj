@@ -3,6 +3,7 @@
 
 package fran.programacion2.trabajofinal.web;
 
+import fran.programacion2.trabajofinal.domain.Mensaje;
 import fran.programacion2.trabajofinal.domain.User;
 import fran.programacion2.trabajofinal.web.UserController;
 import java.io.UnsupportedEncodingException;
@@ -84,6 +85,7 @@ privileged aspect UserController_Roo_Controller {
     void UserController.populateEditForm(Model uiModel, User user) {
         uiModel.addAttribute("user", user);
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("mensajes", Mensaje.findAllMensajes());
     }
     
     String UserController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

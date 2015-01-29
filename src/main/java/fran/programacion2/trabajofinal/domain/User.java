@@ -9,6 +9,10 @@ import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
 
 @RooJavaBean
 @RooToString
@@ -57,4 +61,9 @@ public class User {
     /**
      */
     private Boolean locked;
+
+    /**
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "autor")
+    private Set<Mensaje> listaMensajes = new HashSet<Mensaje>();
 }

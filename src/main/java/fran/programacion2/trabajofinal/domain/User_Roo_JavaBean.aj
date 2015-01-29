@@ -3,8 +3,10 @@
 
 package fran.programacion2.trabajofinal.domain;
 
+import fran.programacion2.trabajofinal.domain.Mensaje;
 import fran.programacion2.trabajofinal.domain.User;
 import java.util.Date;
+import java.util.Set;
 
 privileged aspect User_Roo_JavaBean {
     
@@ -70,6 +72,14 @@ privileged aspect User_Roo_JavaBean {
     
     public void User.setLocked(Boolean locked) {
         this.locked = locked;
+    }
+    
+    public Set<Mensaje> User.getListaMensajes() {
+        return this.listaMensajes;
+    }
+    
+    public void User.setListaMensajes(Set<Mensaje> listaMensajes) {
+        this.listaMensajes = listaMensajes;
     }
     
 }

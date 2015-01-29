@@ -15,5 +15,9 @@
             <menu:item id="i_userrole_new" messageCode="global_menu_new" url="/userroles?form" z="qYpuuJuPupoYjD8LM0ISnxylj4o="/>
             <menu:item id="i_userrole_list" messageCode="global_menu_list" url="/userroles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="fTjcT4INZTypLgu+ZHmwzE55ORs="/>
         </menu:category>
+        <menu:category id="c_mensaje" z="/z8EFX6PBUJoSZKfzMJGTros24c=">
+            <menu:item id="i_mensaje_new" messageCode="global_menu_new" url="/mensajes?form" z="Bg8B78AtOSfZx35jXtE44AL2luU="/>
+            <menu:item id="i_mensaje_list" messageCode="global_menu_list" url="/mensajes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Vei5khNLhkoZkntvP1llgv4HP2w="/>
+        </menu:category>
     </menu:menu>
 </div>

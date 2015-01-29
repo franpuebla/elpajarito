@@ -64,3 +64,12 @@ web mvc jquery all
 web mvc bootstrap setup
 web mvc all --package ~.web
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2015-01-28 12:48:21
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2015-01-28 23:15:20
+entity jpa --class ~.domain.Mensaje --testAutomatically
+field string --fieldName texto --sizeMin 1 --sizeMax 140 --notNull
+field reference --fieldName autor --type ~.domain.User --notNull
+focus --class ~.domain.User
+field set --fieldName listaMensajes --type ~.domain.Mensaje --class ~.domain.User --cardinality ONE_TO_MANY --mappedBy autor
+focus --class ~.domain.Mensaje
+field date --type java.util.Date --fieldName fechaPublicacion
+web mvc all --package ~.web
