@@ -6,13 +6,19 @@ package fran.programacion2.trabajofinal.web;
 import fran.programacion2.trabajofinal.domain.Mensaje;
 import fran.programacion2.trabajofinal.domain.User;
 import fran.programacion2.trabajofinal.web.MensajeController;
+
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,11 +32,16 @@ privileged aspect MensajeController_Roo_Controller {
     
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String MensajeController.create(@Valid Mensaje mensaje, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
+        //bindingResult.hasErrors();
+    	if (mensaje.getTexto().length() > 140 || mensaje.getTexto().length() < 1) {
             populateEditForm(uiModel, mensaje);
             return "mensajes/create";
         }
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+       // User.findUsersByEmailAddress(authentication.getName());
         uiModel.asMap().clear();
+        mensaje.setAutor(User.findUsersByEmailAddress(authentication.getName()).getSingleResult());
+        mensaje.setFechaPublicacion(new Date());
         mensaje.persist();
         return "redirect:/mensajes/" + encodeUrlPathSegment(mensaje.getId().toString(), httpServletRequest);
     }
@@ -102,8 +113,8 @@ privileged aspect MensajeController_Roo_Controller {
     
     void MensajeController.populateEditForm(Model uiModel, Mensaje mensaje) {
         uiModel.addAttribute("mensaje", mensaje);
-        addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("users", User.findAllUsers());
+        //addDateTimeFormatPatterns(uiModel);
+      //  uiModel.addAttribute("users", User.findAllUsers());
     }
     
     String MensajeController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
