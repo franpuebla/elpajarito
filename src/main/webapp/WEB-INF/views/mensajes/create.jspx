@@ -4,8 +4,9 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_fran_programacion2_trabajofinal_domain_Mensaje" modelAttribute="mensaje" path="/mensajes" render="${empty dependencies}" z="rBmokwENM8ZUmdGVKgpfsCIRaUE=">
         <field:textarea field="texto" id="c_fran_programacion2_trabajofinal_domain_Mensaje_texto" required="true" z="8kXEyqTLfkA087qiwkQ5Pv4AQCw="/>
-       <!--   <field:select field="autor" id="c_fran_programacion2_trabajofinal_domain_Mensaje_autor" itemValue="id" items="${users}" path="/users" required="true" z="+eqOqSRhAuJDj/+puiIc2jOO49A="/>-->
+        <!--   <field:select field="autor" id="c_fran_programacion2_trabajofinal_domain_Mensaje_autor" itemValue="id" items="${users}" path="/users" required="true" z="+eqOqSRhAuJDj/+puiIc2jOO49A="/>-->
         <field:datetime dateTimePattern="${mensaje_fechapublicacion_date_format}" field="fechaPublicacion" id="c_fran_programacion2_trabajofinal_domain_Mensaje_fechaPublicacion" z="0Qxy+BsoRrZVwVowjLL+8XTW+3Q="/>
+        <field:select field="autor" id="c_fran_programacion2_trabajofinal_domain_Mensaje_autor" itemValue="id" items="${users}" path="/users" required="true" z="+eqOqSRhAuJDj/+puiIc2jOO49A="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_fran_programacion2_trabajofinal_domain_Mensaje" render="${not empty dependencies}" z="J4StuRX0wnPm51ljkfQM9vlGrf8="/>
 </div>

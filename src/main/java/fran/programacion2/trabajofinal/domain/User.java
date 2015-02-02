@@ -66,4 +66,14 @@ public class User {
      */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "autor")
     private Set<Mensaje> listaMensajes = new HashSet<Mensaje>();
+
+    /**
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "seguido")
+    private Set<SeguidoresSeguidos> listaSeguidores = new HashSet<SeguidoresSeguidos>();
+
+    /**
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "seguidor")
+    private Set<SeguidoresSeguidos> listaSeguidos = new HashSet<SeguidoresSeguidos>();
 }

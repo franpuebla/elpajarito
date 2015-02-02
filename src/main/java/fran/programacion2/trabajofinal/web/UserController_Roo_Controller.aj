@@ -4,6 +4,7 @@
 package fran.programacion2.trabajofinal.web;
 
 import fran.programacion2.trabajofinal.domain.Mensaje;
+import fran.programacion2.trabajofinal.domain.SeguidoresSeguidos;
 import fran.programacion2.trabajofinal.domain.User;
 import fran.programacion2.trabajofinal.web.UserController;
 import java.io.UnsupportedEncodingException;
@@ -86,6 +87,7 @@ privileged aspect UserController_Roo_Controller {
         uiModel.addAttribute("user", user);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("mensajes", Mensaje.findAllMensajes());
+        uiModel.addAttribute("seguidoresseguidoses", SeguidoresSeguidos.findAllSeguidoresSeguidoses());
     }
     
     String UserController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

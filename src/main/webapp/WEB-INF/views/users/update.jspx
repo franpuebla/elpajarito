@@ -12,5 +12,7 @@
         <field:checkbox field="enabled" id="c_fran_programacion2_trabajofinal_domain_User_enabled" z="Tw6mI0ppXYJLV65ja8TNUAfilXM="/>
         <field:checkbox field="locked" id="c_fran_programacion2_trabajofinal_domain_User_locked" z="tG3hta2xb1YSZuRswNa56AQBGcU="/>
         <field:simple field="listaMensajes" id="c_fran_programacion2_trabajofinal_domain_User_listaMensajes" messageCode="entity_reference_not_managed" messageCodeAttribute="Mensaje" z="xMt09TY5ud7AEvd9qUSUw68gG6c="/>
+        <field:simple field="listaSeguidores" id="c_fran_programacion2_trabajofinal_domain_User_listaSeguidores" messageCode="entity_reference_not_managed" messageCodeAttribute="Seguidores Seguidos" z="JDKL/vNLEWCCi/fCC50ItOJ0hZc="/>
+        <field:simple field="listaSeguidos" id="c_fran_programacion2_trabajofinal_domain_User_listaSeguidos" messageCode="entity_reference_not_managed" messageCodeAttribute="Seguidores Seguidos" z="LHc05KXRFkrmvsiaOBaNbuqeHXw="/>
     </form:update>
 </div>

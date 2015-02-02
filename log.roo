@@ -73,3 +73,13 @@ field set --fieldName listaMensajes --type ~.domain.Mensaje --class ~.domain.Use
 focus --class ~.domain.Mensaje
 field date --type java.util.Date --fieldName fechaPublicacion
 web mvc all --package ~.web
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2015-02-02 17:32:38
+entity jpa --class ~.domain.SeguidoresSeguidos --testAutomatically --permitReservedWords
+field reference --fieldName seguidor --type ~.domain.User --notNull
+field reference --fieldName seguido --type ~.domain.User --notNull
+focus --class ~.domain.User
+field set --fieldName listaSeguidores --type ~.domain.SeguidoresSeguidos --class ~.domain.User --cardinality ONE_TO_MANY --mappedBy seguido
+field set --fieldName listaSeguidos --type ~.domain.SeguidoresSeguidos --class ~.domain.User --cardinality ONE_TO_MANY --mappedBy seguidor
+focus --class ~.domain.SeguidoresSeguidos
+hint
+web mvc all --package fran.programacion2.trabajofinal.domain.SeguidoresSeguidos

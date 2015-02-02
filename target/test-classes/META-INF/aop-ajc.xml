@@ -1,7 +1,16 @@
 <aspectj>
 <aspects>
-<aspect name="fran.programacion2.trabajofinal.domain.MensajeIntegrationTest_Roo_Configurable"/>
 <aspect name="fran.programacion2.trabajofinal.domain.UserIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="fran.programacion2.trabajofinal.domain.RoleIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="fran.programacion2.trabajofinal.domain.RoleIntegrationTest_Roo_Configurable"/>
+<aspect name="fran.programacion2.trabajofinal.domain.MensajeDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="fran.programacion2.trabajofinal.domain.UserIntegrationTest_Roo_Configurable"/>
+<aspect name="fran.programacion2.trabajofinal.domain.RoleDataOnDemand_Roo_Configurable"/>
+<aspect name="fran.programacion2.trabajofinal.domain.UserDataOnDemand_Roo_Configurable"/>
+<aspect name="fran.programacion2.trabajofinal.domain.SeguidoresSeguidosDataOnDemand_Roo_Configurable"/>
+<aspect name="fran.programacion2.trabajofinal.domain.MensajeIntegrationTest_Roo_Configurable"/>
+<aspect name="fran.programacion2.trabajofinal.domain.SeguidoresSeguidosDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="fran.programacion2.trabajofinal.domain.SeguidoresSeguidosIntegrationTest_Roo_IntegrationTest"/>
 <aspect name="fran.programacion2.trabajofinal.domain.MensajeIntegrationTest_Roo_IntegrationTest"/>
 <aspect name="fran.programacion2.trabajofinal.domain.UserDataOnDemand_Roo_DataOnDemand"/>
 <aspect name="fran.programacion2.trabajofinal.domain.UserRoleIntegrationTest_Roo_IntegrationTest"/>
@@ -9,13 +18,8 @@
 <aspect name="fran.programacion2.trabajofinal.domain.UserRoleDataOnDemand_Roo_DataOnDemand"/>
 <aspect name="fran.programacion2.trabajofinal.domain.UserRoleIntegrationTest_Roo_Configurable"/>
 <aspect name="fran.programacion2.trabajofinal.domain.RoleDataOnDemand_Roo_DataOnDemand"/>
-<aspect name="fran.programacion2.trabajofinal.domain.RoleIntegrationTest_Roo_IntegrationTest"/>
-<aspect name="fran.programacion2.trabajofinal.domain.RoleIntegrationTest_Roo_Configurable"/>
-<aspect name="fran.programacion2.trabajofinal.domain.MensajeDataOnDemand_Roo_DataOnDemand"/>
-<aspect name="fran.programacion2.trabajofinal.domain.UserIntegrationTest_Roo_Configurable"/>
-<aspect name="fran.programacion2.trabajofinal.domain.RoleDataOnDemand_Roo_Configurable"/>
-<aspect name="fran.programacion2.trabajofinal.domain.UserDataOnDemand_Roo_Configurable"/>
 <aspect name="fran.programacion2.trabajofinal.domain.MensajeDataOnDemand_Roo_Configurable"/>
+<aspect name="fran.programacion2.trabajofinal.domain.SeguidoresSeguidosIntegrationTest_Roo_Configurable"/>
 </aspects>
 </aspectj>
 

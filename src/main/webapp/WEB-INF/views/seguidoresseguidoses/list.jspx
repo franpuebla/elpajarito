@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_fran_programacion2_trabajofinal_domain_SeguidoresSeguidos" items="${seguidoresseguidoses}" z="R4sKPmts+4+l7tL2tlGc+IW4TUo=">
+        <table:table data="${seguidoresseguidoses}" id="l_fran_programacion2_trabajofinal_domain_SeguidoresSeguidos" path="/seguidoresseguidoses" z="5T/bbvUPyXrICax4c/gMy3Dun2M=">
+            <table:column id="c_fran_programacion2_trabajofinal_domain_SeguidoresSeguidos_seguidor" property="seguidor" z="vQnwVOHv9G0uWeAB1GwHAq09Hqw="/>
+            <table:column id="c_fran_programacion2_trabajofinal_domain_SeguidoresSeguidos_seguido" property="seguido" z="ynPndARf/uecDHiVAsVCkgvZHPQ="/>
+        </table:table>
+    </page:list>
+</div>

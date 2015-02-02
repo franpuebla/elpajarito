@@ -4,6 +4,7 @@
 package fran.programacion2.trabajofinal.domain;
 
 import fran.programacion2.trabajofinal.domain.Mensaje;
+import fran.programacion2.trabajofinal.domain.SeguidoresSeguidos;
 import fran.programacion2.trabajofinal.domain.User;
 import java.util.Date;
 import java.util.Set;
@@ -80,6 +81,22 @@ privileged aspect User_Roo_JavaBean {
     
     public void User.setListaMensajes(Set<Mensaje> listaMensajes) {
         this.listaMensajes = listaMensajes;
+    }
+    
+    public Set<SeguidoresSeguidos> User.getListaSeguidores() {
+        return this.listaSeguidores;
+    }
+    
+    public void User.setListaSeguidores(Set<SeguidoresSeguidos> listaSeguidores) {
+        this.listaSeguidores = listaSeguidores;
+    }
+    
+    public Set<SeguidoresSeguidos> User.getListaSeguidos() {
+        return this.listaSeguidos;
+    }
+    
+    public void User.setListaSeguidos(Set<SeguidoresSeguidos> listaSeguidos) {
+        this.listaSeguidos = listaSeguidos;
     }
     
 }

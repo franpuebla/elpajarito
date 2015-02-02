@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_fran_programacion2_trabajofinal_domain_SeguidoresSeguidos" object="${seguidoresseguidos}" path="/seguidoresseguidoses" z="C0UQPR32tBJKh1Xhcxk5iv5vmFM=">
+        <field:display field="seguidor" id="s_fran_programacion2_trabajofinal_domain_SeguidoresSeguidos_seguidor" object="${seguidoresseguidos}" z="hSRog2tfaykBfmNL4FcqRnWyh0g="/>
+        <field:display field="seguido" id="s_fran_programacion2_trabajofinal_domain_SeguidoresSeguidos_seguido" object="${seguidoresseguidos}" z="HiUfrcKrHn2VJTLVinIppL5CPag="/>
+    </page:show>
+</div>

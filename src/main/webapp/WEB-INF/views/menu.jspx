@@ -19,5 +19,9 @@
             <menu:item id="i_mensaje_new" messageCode="global_menu_new" url="/mensajes?form" z="Bg8B78AtOSfZx35jXtE44AL2luU="/>
             <menu:item id="i_mensaje_list" messageCode="global_menu_list" url="/mensajes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Vei5khNLhkoZkntvP1llgv4HP2w="/>
         </menu:category>
+        <menu:category id="c_seguidoresseguidos" z="F3q75cG294tpHKKjTK3Yj4Dk7kE=">
+            <menu:item id="i_seguidoresseguidos_new" messageCode="global_menu_new" url="/seguidoresseguidoses?form" z="FxRiKSEV2yXU1SCqapT3WDEEXsI="/>
+            <menu:item id="i_seguidoresseguidos_list" messageCode="global_menu_list" url="/seguidoresseguidoses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="1nz9GgLKSuvxISoP6N6VYQvpbnQ="/>
+        </menu:category>
     </menu:menu>
 </div>

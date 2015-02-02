@@ -5,6 +5,7 @@ package fran.programacion2.trabajofinal.web;
 
 import fran.programacion2.trabajofinal.domain.Mensaje;
 import fran.programacion2.trabajofinal.domain.Role;
+import fran.programacion2.trabajofinal.domain.SeguidoresSeguidos;
 import fran.programacion2.trabajofinal.domain.User;
 import fran.programacion2.trabajofinal.domain.UserRole;
 import fran.programacion2.trabajofinal.web.ApplicationConversionServiceFactoryBean;
@@ -64,6 +65,30 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<SeguidoresSeguidos, String> ApplicationConversionServiceFactoryBean.getSeguidoresSeguidosToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<fran.programacion2.trabajofinal.domain.SeguidoresSeguidos, java.lang.String>() {
+            public String convert(SeguidoresSeguidos seguidoresSeguidos) {
+                return "(no displayable fields)";
+            }
+        };
+    }
+    
+    public Converter<Long, SeguidoresSeguidos> ApplicationConversionServiceFactoryBean.getIdToSeguidoresSeguidosConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, fran.programacion2.trabajofinal.domain.SeguidoresSeguidos>() {
+            public fran.programacion2.trabajofinal.domain.SeguidoresSeguidos convert(java.lang.Long id) {
+                return SeguidoresSeguidos.findSeguidoresSeguidos(id);
+            }
+        };
+    }
+    
+    public Converter<String, SeguidoresSeguidos> ApplicationConversionServiceFactoryBean.getStringToSeguidoresSeguidosConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, fran.programacion2.trabajofinal.domain.SeguidoresSeguidos>() {
+            public fran.programacion2.trabajofinal.domain.SeguidoresSeguidos convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), SeguidoresSeguidos.class);
+            }
+        };
+    }
+    
     public Converter<User, String> ApplicationConversionServiceFactoryBean.getUserToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<fran.programacion2.trabajofinal.domain.User, java.lang.String>() {
             public String convert(User user) {
@@ -119,6 +144,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getRoleToStringConverter());
         registry.addConverter(getIdToRoleConverter());
         registry.addConverter(getStringToRoleConverter());
+        registry.addConverter(getSeguidoresSeguidosToStringConverter());
+        registry.addConverter(getIdToSeguidoresSeguidosConverter());
+        registry.addConverter(getStringToSeguidoresSeguidosConverter());
         registry.addConverter(getUserToStringConverter());
         registry.addConverter(getIdToUserConverter());
         registry.addConverter(getStringToUserConverter());
