@@ -27,6 +27,7 @@ privileged aspect Mensaje_Roo_Jpa_ActiveRecord {
     public static List<Mensaje> Mensaje.findAllMensajes() {
         return entityManager().createQuery("SELECT o FROM Mensaje o", Mensaje.class).getResultList();
     }
+   
     
     public static Mensaje Mensaje.findMensaje(Long id) {
         if (id == null) return null;

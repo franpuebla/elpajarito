@@ -9,10 +9,15 @@ import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.roo.addon.json.RooJson;
+import fran.programacion2.trabajofinal.web.MensajeController;
+import org.springframework.roo.addon.web.mvc.controller.json.RooWebJson;
 
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
+@RooJson
+@RooWebJson(jsonObject = MensajeController.class)
 public class Mensaje {
 
     /**

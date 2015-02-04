@@ -83,3 +83,6 @@ field set --fieldName listaSeguidos --type ~.domain.SeguidoresSeguidos --class ~
 focus --class ~.domain.SeguidoresSeguidos
 hint
 web mvc all --package fran.programacion2.trabajofinal.domain.SeguidoresSeguidos
+json add --class ~.domain.Mensaje
+web mvc json add --jsonObject ~.web.MensajeController
+web mvc json all

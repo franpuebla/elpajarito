@@ -1,5 +1,6 @@
 <aspectj>
 <aspects>
+<aspect name="fran.programacion2.trabajofinal.web.MensajeController_Roo_Controller_Json"/>
 <aspect name="fran.programacion2.trabajofinal.domain.SeguidoresSeguidos_Roo_ToString"/>
 <aspect name="fran.programacion2.trabajofinal.domain.UserRole_Roo_Jpa_ActiveRecord"/>
 <aspect name="fran.programacion2.trabajofinal.domain.SeguidoresSeguidos_Roo_Jpa_ActiveRecord"/>
@@ -19,6 +20,7 @@
 <aspect name="fran.programacion2.trabajofinal.domain.Mensaje_Roo_Configurable"/>
 <aspect name="fran.programacion2.trabajofinal.domain.Mensaje_Roo_Jpa_Entity"/>
 <aspect name="fran.programacion2.trabajofinal.domain.User_Roo_JavaBean"/>
+<aspect name="fran.programacion2.trabajofinal.domain.Mensaje_Roo_Json"/>
 <aspect name="fran.programacion2.trabajofinal.domain.UserRole_Roo_JavaBean"/>
 <aspect name="fran.programacion2.trabajofinal.domain.SeguidoresSeguidos_Roo_JavaBean"/>
 <aspect name="fran.programacion2.trabajofinal.web.MensajeController_Roo_Controller"/>

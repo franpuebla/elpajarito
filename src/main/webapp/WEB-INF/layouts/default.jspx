@@ -9,6 +9,9 @@
 	<head>
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
 		<meta content="IE=8" http-equiv="X-UA-Compatible"/>	
+		<meta http-equiv='cache-control' content='no-cache'/>
+		<meta http-equiv='expires' content='0'/>
+		<meta http-equiv='pragma' content='no-cache'/>
 			
 		<!-- Bootstrap -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />

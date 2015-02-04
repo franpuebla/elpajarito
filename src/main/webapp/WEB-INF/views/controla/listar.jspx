@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <spring:message code="application_name" htmlEscape="false" var="app_name"/>
+  <spring:message arguments="${app_name}" code="welcome_titlepane" htmlEscape="false" var="title"/>
+  <util:panel id="title" title="${title}">
+ 
+ <table border="1" class="table">
+	<tr>
+		<td>ID</td><td>TEXTO</td>
+	</tr>
+	<c:forEach var="mensaje" items="${mensajes}">
+		<tr>
+			<td>${mensaje.id}</td> 
+			<td>${mensaje.texto}</td>			
+		</tr>
+	</c:forEach>
+  	</table>
+ 
+ 
+ 
+  <h1>Ejemplo con AJAX</h1>
+  
+  	<table border="1">
+  		<TBODY id="contenidoTabla"></TBODY>
+	</table>
+  
+  	<div id="contenedorFormulario">
+  		
+  		<form id="datosFormulario">
+  		<div>
+	  		<span>Texto: </span>
+	  			<INPUT type="text" name="texto" id="formTexto"/>
+	  		<span id="campoTexto"></span>
+  		</div>
+  		<div>
+  		<span>Version: </span>
+  		<span id="campoVersion">&#160;</span><input type="hidden" name="version" id="formVersion"/></div> 
+  		<div>
+  			<span class="btn btn-danger" id="botonBorrarFormulario">borrar formulario</span>
+  			<span class="btn btn-primary" id="botonAjaxAgregar">agregar mensaje</span>
+  			<span class="btn btn-primary" id="botonAjaxEditar">editar mensaje</span></div>
+  		</form>
+  	</div>
+  
+  </util:panel>  
+</div>

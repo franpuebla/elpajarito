@@ -5,11 +5,17 @@
 
   <spring:theme code="styleSheet" var="roo_css"/>
   <spring:url value="/${roo_css}" var="roo_css_url"/>
+  
+  
   <spring:url value="/resources/dojo/dojo.js" var="dojo_url"/>
+  <spring:url value="/resources/scripts/controla/ajax.js" var="ajax_url"/>
   <spring:url value="/resources/dijit/themes/tundra/tundra.css" var="tundra_url"/>
   <spring:url value="/resources/spring/Spring.js" var="spring_url"/>
   <spring:url value="/resources/spring/Spring-Dojo.js" var="spring_dojo_url"/>
   <spring:url value="/resources/images/favicon.ico" var="favicon"/>
+  
+  
+  
   <link href="${tundra_url}" rel="stylesheet" type="text/css"/>
   <link href="${roo_css_url}" media="screen" rel="stylesheet" type="text/css"/>
   <link href="${favicon}" rel="SHORTCUT ICON"/>
@@ -20,7 +26,11 @@
     <c:out default="en" value="${fn:replace(plocale, '_', '-')}"/>
   </c:set>
 
+ 
+
   <script type="text/javascript">var djConfig = {parseOnLoad: false, isDebug: false, locale: '${fn:toLowerCase(userLocale)}'};</script>
+
+  
 
   <script src="${dojo_url}" type="text/javascript">
         <!-- required for FF3 and Opera -->
@@ -88,4 +98,8 @@
     <script src="${jquery_validate_i18n_js_url}" type="text/javascript">
         <!--required for FF3 and Opera-->
     </script>
+    <script src="${ajax_url}" type="text/javascript">
+       
+    </script>
+    
 </jsp:root>
