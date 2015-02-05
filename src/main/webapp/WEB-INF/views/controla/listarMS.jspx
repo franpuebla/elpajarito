@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <spring:message code="application_name" htmlEscape="false" var="app_name"/>
+  <spring:message arguments="${app_name}" code="welcome_titlepane" htmlEscape="false" var="title"/>
+  <util:panel id="title" title="${title}">
+ 
+ <table border="1" class="table">
+	<tr>
+		<td>ID</td><td>TEXTO</td>
+	</tr>
+	<c:forEach var="mensajesdeSeguido" items="${mensajesdeSeguido}">
+		<tr>
+			<td>${mensajesdeSeguido.id}</td> 
+			<td>${mensajesdeSeguido.texto}</td>			
+		</tr>
+	</c:forEach>
+  	</table>
+  	
+ </util:panel>  
+</div> 	

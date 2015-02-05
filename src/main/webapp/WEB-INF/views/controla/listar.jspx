@@ -17,6 +17,18 @@
 		</tr>
 	</c:forEach>
   	</table>
+  	
+  	<table border="1" class="table table-striped">
+	<tr>
+		<td>ID</td><td>TEXTO</td>
+	</tr>
+	<c:forEach var="mensaje" items="${mensajesUser}">
+		<tr>
+			<td>${mensaje.id}</td> 
+			<td>${mensaje.texto}</td>			
+		</tr>
+	</c:forEach>
+  	</table>
  
  
  

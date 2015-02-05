@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fran.programacion2.trabajofinal.domain.Mensaje;
+import fran.programacion2.trabajofinal.domain.SeguidoresSeguidos;
 import fran.programacion2.trabajofinal.domain.User;
 
 
@@ -36,21 +39,46 @@ public class Controlador1Controller {
     public String listar(Model uiModel, HttpServletRequest request, HttpServletResponse response) {
     	// el metodo findAll??? esta definido en todos los modelos y recupera todos los registros
 		// de la tabla y los coloca en una List.
-		List<Mensaje> mensajes = Mensaje.findAllMensajes();
 		
+		
+		List<Mensaje> mensajes = Mensaje.findAllMensajes();
+	
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userName = auth.getName(); //get logged in username
+       
+		List<Mensaje> mensajesUser = Mensaje.findAllMensajesforUser(User.findUsersByEmailAddress(userName).getSingleResult());
     	
-		//Recupero un mensaje que fue almacenado en la sesion y lo coloco en el uiModel
-		/*String msg = (String) request.getSession().getAttribute("mensajeResultado");
-    	if(msg != null) {
-    		request.getSession().removeAttribute("mensajeResultado");
-    	}*/
-    	uiModel.addAttribute("mensajes", mensajes);
-    	//cleanJsCss();
+		uiModel.addAttribute("mensajes", mensajes);
+    	uiModel.addAttribute("mensajesUser", mensajesUser);
     	
     	//Indico que quiero acceder a la vista referenciada por "controla/listar"
     	return "controla/listar";
     }
 
+	
+	@RequestMapping(value={"/listarMS"}, method = { RequestMethod.GET, RequestMethod.POST }, produces = "text/html")
+    public String listarMS(Model uiModel, HttpServletRequest request, HttpServletResponse response) {
+    	
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userName = auth.getName(); //get logged in username
+        User user = User.findUsersByEmailAddress(userName).getSingleResult();
+        
+        List<User> seguidos = SeguidoresSeguidos.findSeguidos(user);
+        
+        List<Mensaje> listaGrande = new ArrayList<Mensaje>();
+       
+        for(int i = 0 ; i < seguidos.size() ; i++){
+		 	User seguido = seguidos.get(i);
+		 	
+		 	List<Mensaje> mensajesdeSeguido = Mensaje.findAllMensajesforUser(seguido);
+		 	listaGrande.addAll(mensajesdeSeguido);
+		 	
+        }
+         
+		 	uiModel.addAttribute("mensajesdeSeguido", listaGrande);
+	    	
+        return "controla/listarMS";
+    }
 
 
 	/*

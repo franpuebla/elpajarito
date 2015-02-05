@@ -4,9 +4,13 @@
 package fran.programacion2.trabajofinal.domain;
 
 import fran.programacion2.trabajofinal.domain.Mensaje;
+
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect Mensaje_Roo_Jpa_ActiveRecord {
@@ -24,10 +28,16 @@ privileged aspect Mensaje_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT COUNT(o) FROM Mensaje o", Long.class).getSingleResult();
     }
     
+    
     public static List<Mensaje> Mensaje.findAllMensajes() {
         return entityManager().createQuery("SELECT o FROM Mensaje o", Mensaje.class).getResultList();
     }
-   
+    public static List<Mensaje> Mensaje.findAllMensajesforUser(User user) {
+    	EntityManager em = Mensaje.entityManager();
+        TypedQuery<Mensaje> q = em.createQuery("SELECT o FROM Mensaje AS o WHERE o.autor = :autor", Mensaje.class);
+        q.setParameter("autor", user);
+        return q.getResultList();
+    }
     
     public static Mensaje Mensaje.findMensaje(Long id) {
         if (id == null) return null;

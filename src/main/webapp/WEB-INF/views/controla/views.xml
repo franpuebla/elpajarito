@@ -4,5 +4,8 @@
     <definition extends="default" name="controla/listar">
         <put-attribute name="body" value="/WEB-INF/views/controla/listar.jspx"/>
     </definition>
+    <definition extends="default" name="controla/listarMS">
+        <put-attribute name="body" value="/WEB-INF/views/controla/listarMS.jspx"/>
+    </definition>
     
 </tiles-definitions>
