@@ -41,12 +41,7 @@ privileged aspect SeguidoresSeguidos_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM SeguidoresSeguidos o", SeguidoresSeguidos.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
-    public static List<User> SeguidoresSeguidos.findSeguidos(User user) {
-    	EntityManager em = SeguidoresSeguidos.entityManager();
-        TypedQuery<User> q = em.createQuery("SELECT seguido FROM SeguidoresSeguidos WHERE seguidor = :seguidor", User.class);
-        q.setParameter("seguidor", user);
-        return q.getResultList();
-    }
+    
         
     
     @Transactional

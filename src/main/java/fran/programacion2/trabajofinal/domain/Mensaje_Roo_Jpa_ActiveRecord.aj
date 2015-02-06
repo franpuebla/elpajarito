@@ -32,12 +32,7 @@ privileged aspect Mensaje_Roo_Jpa_ActiveRecord {
     public static List<Mensaje> Mensaje.findAllMensajes() {
         return entityManager().createQuery("SELECT o FROM Mensaje o", Mensaje.class).getResultList();
     }
-    public static List<Mensaje> Mensaje.findAllMensajesforUser(User user) {
-    	EntityManager em = Mensaje.entityManager();
-        TypedQuery<Mensaje> q = em.createQuery("SELECT o FROM Mensaje AS o WHERE o.autor = :autor", Mensaje.class);
-        q.setParameter("autor", user);
-        return q.getResultList();
-    }
+    
     
     public static Mensaje Mensaje.findMensaje(Long id) {
         if (id == null) return null;
