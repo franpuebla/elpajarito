@@ -4,6 +4,7 @@
 package fran.programacion2.trabajofinal.web;
 
 import fran.programacion2.trabajofinal.domain.Mensaje;
+import fran.programacion2.trabajofinal.domain.Referencia;
 import fran.programacion2.trabajofinal.domain.SeguidoresSeguidos;
 import fran.programacion2.trabajofinal.domain.User;
 import fran.programacion2.trabajofinal.web.UserController;
@@ -87,6 +88,7 @@ privileged aspect UserController_Roo_Controller {
         uiModel.addAttribute("user", user);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("mensajes", Mensaje.findAllMensajes());
+        uiModel.addAttribute("referencias", Referencia.findAllReferencias());
         uiModel.addAttribute("seguidoresseguidoses", SeguidoresSeguidos.findAllSeguidoresSeguidoses());
     }
     

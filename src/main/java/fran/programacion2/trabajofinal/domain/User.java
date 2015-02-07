@@ -76,4 +76,9 @@ public class User {
      */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "seguidor")
     private Set<SeguidoresSeguidos> listaSeguidos = new HashSet<SeguidoresSeguidos>();
+
+    /**
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "referido")
+    private Set<Referencia> referencias = new HashSet<Referencia>();
 }

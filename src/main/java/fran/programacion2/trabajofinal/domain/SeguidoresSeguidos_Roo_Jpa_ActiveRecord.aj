@@ -4,13 +4,9 @@
 package fran.programacion2.trabajofinal.domain;
 
 import fran.programacion2.trabajofinal.domain.SeguidoresSeguidos;
-
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect SeguidoresSeguidos_Roo_Jpa_ActiveRecord {
@@ -40,9 +36,6 @@ privileged aspect SeguidoresSeguidos_Roo_Jpa_ActiveRecord {
     public static List<SeguidoresSeguidos> SeguidoresSeguidos.findSeguidoresSeguidosEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM SeguidoresSeguidos o", SeguidoresSeguidos.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
-    
-    
-        
     
     @Transactional
     public void SeguidoresSeguidos.persist() {

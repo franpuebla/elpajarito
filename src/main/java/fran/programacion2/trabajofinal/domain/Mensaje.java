@@ -6,12 +6,19 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.persistence.ManyToOne;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.EntityManager;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.TypedQuery;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.json.RooJson;
 import fran.programacion2.trabajofinal.web.MensajeController;
 import org.springframework.roo.addon.web.mvc.controller.json.RooWebJson;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
 
 @RooJavaBean
 @RooToString
@@ -37,4 +44,21 @@ public class Mensaje {
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Date fechaPublicacion;
+
+    public static List<Mensaje> findAllMensajesforUser(User user) {
+        EntityManager em = Mensaje.entityManager();
+        TypedQuery<Mensaje> q = em.createQuery("SELECT o FROM Mensaje AS o WHERE o.autor = :autor", Mensaje.class);
+        q.setParameter("autor", user);
+        return q.getResultList();
+    }
+
+    /**
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMensaje")
+    private Set<Hashtag> hashtag = new HashSet<Hashtag>();
+
+    /**
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMensaje")
+    private Set<Referencia> referencias = new HashSet<Referencia>();
 }

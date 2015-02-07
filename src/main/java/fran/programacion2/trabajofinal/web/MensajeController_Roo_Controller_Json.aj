@@ -4,18 +4,11 @@
 package fran.programacion2.trabajofinal.web;
 
 import fran.programacion2.trabajofinal.domain.Mensaje;
-import fran.programacion2.trabajofinal.domain.User;
 import fran.programacion2.trabajofinal.web.MensajeController;
-
-import java.util.Date;
 import java.util.List;
-
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.SecurityConfig;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,21 +36,6 @@ privileged aspect MensajeController_Roo_Controller_Json {
         headers.add("Content-Type", "application/json; charset=utf-8");
         List<Mensaje> result = Mensaje.findAllMensajes();
         return new ResponseEntity<String>(Mensaje.toJsonArray(result), headers, HttpStatus.OK);
-    }
-    
-    @RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
-    public ResponseEntity<String> MensajeController.createFromJson(@RequestBody String json) {
-        Mensaje mensaje = Mensaje.fromJsonToMensaje(json);
-        
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String userName = auth.getName(); //get logged in username
-        mensaje.setAutor(User.findUsersByEmailAddress(userName).getSingleResult());
-        mensaje.setFechaPublicacion(new Date());
-        mensaje.persist();
-        
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
-        return new ResponseEntity<String>(headers, HttpStatus.CREATED);
     }
     
     @RequestMapping(value = "/jsonArray", method = RequestMethod.POST, headers = "Accept=application/json")

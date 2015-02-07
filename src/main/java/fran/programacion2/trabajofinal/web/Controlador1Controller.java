@@ -23,8 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fran.programacion2.trabajofinal.domain.Mensaje;
 import fran.programacion2.trabajofinal.domain.SeguidoresSeguidos;
 import fran.programacion2.trabajofinal.domain.User;
-import fran.programacion2.trabajofinal.domain.DAOs.MensajeDAO;
-import fran.programacion2.trabajofinal.domain.DAOs.SeguidoresSeguidosDAO;
+
 
 
 
@@ -48,7 +47,7 @@ public class Controlador1Controller {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userName = auth.getName(); //get logged in username
        
-		List<Mensaje> mensajesUser = MensajeDAO.findAllMensajesforUser(User.findUsersByEmailAddress(userName).getSingleResult());
+		List<Mensaje> mensajesUser = Mensaje.findAllMensajesforUser(User.findUsersByEmailAddress(userName).getSingleResult());
     	
 		uiModel.addAttribute("mensajes", mensajes);
     	uiModel.addAttribute("mensajesUser", mensajesUser);
@@ -65,14 +64,14 @@ public class Controlador1Controller {
         String userName = auth.getName(); //get logged in username
         User user = User.findUsersByEmailAddress(userName).getSingleResult();
         
-        List<User> seguidos = SeguidoresSeguidosDAO.findSeguidos(user);
+        List<User> seguidos = SeguidoresSeguidos.findSeguidos(user);
         
         List<Mensaje> listaGrande = new ArrayList<Mensaje>();
        
         for(int i = 0 ; i < seguidos.size() ; i++){
 		 	User seguido = seguidos.get(i);
 		 	
-		 	List<Mensaje> mensajesdeSeguido = MensajeDAO.findAllMensajesforUser(seguido);
+		 	List<Mensaje> mensajesdeSeguido = Mensaje.findAllMensajesforUser(seguido);
 		 	listaGrande.addAll(mensajesdeSeguido);
 		 	
         }

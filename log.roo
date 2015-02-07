@@ -86,3 +86,22 @@ web mvc all --package fran.programacion2.trabajofinal.domain.SeguidoresSeguidos
 json add --class ~.domain.Mensaje
 web mvc json add --jsonObject ~.web.MensajeController
 web mvc json all
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2015-02-06 20:24:58
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2015-02-06 20:34:50
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2015-02-06 20:36:53
+entity jpa --class ~.domain.Hashtags --testAutomatically --permitReservedWords
+entity jpa --class ~.domain.Referencia --testAutomatically --permitReservedWords
+entity jpa --class ~.domain.Hashtag --testAutomatically --permitReservedWords
+field reference --fieldName idMensaje --type ~.domain.Mensaje --notNull
+focus --class ~.domain.Referencia
+field reference --fieldName idMensaje --type ~.domain.Mensaje --notNull
+focus --class ~.domain.Mensaje
+// [failed] field set --fieldName hastags --type ~.domain.Hastag --cardinality ONE_TO_MANY --mappedBy idMensaje
+field set --fieldName hashtag --type ~.domain.Hashtag --cardinality ONE_TO_MANY --mappedBy idMensaje
+field set --fieldName referencias --type ~.domain.Referencia --cardinality ONE_TO_MANY --mappedBy idMensaje
+focus --class ~.domain.Hashtag
+field string --fieldName hash --notNull
+focus --class ~.domain.Referencia
+field reference --fieldName referido --type ~.domain.User --notNull
+focus --class ~.domain.User
+field set --fieldName referencias --type ~.domain.Referencia --cardinality ONE_TO_MANY --mappedBy referido

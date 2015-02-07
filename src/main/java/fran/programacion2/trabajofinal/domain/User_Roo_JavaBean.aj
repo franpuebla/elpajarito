@@ -4,6 +4,7 @@
 package fran.programacion2.trabajofinal.domain;
 
 import fran.programacion2.trabajofinal.domain.Mensaje;
+import fran.programacion2.trabajofinal.domain.Referencia;
 import fran.programacion2.trabajofinal.domain.SeguidoresSeguidos;
 import fran.programacion2.trabajofinal.domain.User;
 import java.util.Date;
@@ -97,6 +98,14 @@ privileged aspect User_Roo_JavaBean {
     
     public void User.setListaSeguidos(Set<SeguidoresSeguidos> listaSeguidos) {
         this.listaSeguidos = listaSeguidos;
+    }
+    
+    public Set<Referencia> User.getReferencias() {
+        return this.referencias;
+    }
+    
+    public void User.setReferencias(Set<Referencia> referencias) {
+        this.referencias = referencias;
     }
     
 }
