@@ -80,6 +80,7 @@ public class SignUpController {
 
             User User = new User();
             User.setActivationDate(null);
+            User.setNick(userRegistration.getNick());
             User.setEmailAddress(userRegistration.getEmailAddress());
             User.setFirstName(userRegistration.getFirstName());
             User.setLastName(userRegistration.getLastName());

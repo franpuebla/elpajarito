@@ -30,7 +30,18 @@ public class UserRegistrationForm {
 	private String password;
 	@NotNull
 	@Size(min = 1)
-	private String repeatPassword;
+	private String repeatPassword;	
+	@NotNull
+	@Size(min = 1)
+	private String nick;
+
+	public String getNick() {
+		return nick;
+	}
+
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
 
 	private String recaptcha_challenge_field;
 
