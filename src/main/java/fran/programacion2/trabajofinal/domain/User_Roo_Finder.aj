@@ -27,4 +27,12 @@ privileged aspect User_Roo_Finder {
         return q;
     }
     
+    public static TypedQuery<User> User.findUsersByNick(String nick) {
+        if (nick == null || nick.length() == 0) throw new IllegalArgumentException("The nick argument is required");
+        EntityManager em = User.entityManager();
+        TypedQuery<User> q = em.createQuery("SELECT o FROM User AS o WHERE o.nick = :nick", User.class);
+        q.setParameter("nick", nick);
+        return q;
+    }
+    
 }

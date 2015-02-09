@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(finders = { "findUsersByEmailAddress", "findUsersByActivationKeyAndEmailAddress" })
+@RooJpaActiveRecord(finders = { "findUsersByEmailAddress", "findUsersByActivationKeyAndEmailAddress", "findUsersByNick" })
 public class User {
 
     /**
@@ -81,4 +81,11 @@ public class User {
      */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "referido")
     private Set<Referencia> referencias = new HashSet<Referencia>();
+
+    /**
+     */
+    @NotNull
+    @Column(unique = true)
+    @Size(min = 1, max = 15)
+    private String nick;
 }

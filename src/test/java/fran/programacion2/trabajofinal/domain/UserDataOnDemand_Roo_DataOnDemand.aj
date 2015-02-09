@@ -34,6 +34,7 @@ privileged aspect UserDataOnDemand_Roo_DataOnDemand {
         setFirstName(obj, index);
         setLastName(obj, index);
         setLocked(obj, index);
+        setNick(obj, index);
         setPassword(obj, index);
         return obj;
     }
@@ -71,6 +72,14 @@ privileged aspect UserDataOnDemand_Roo_DataOnDemand {
     public void UserDataOnDemand.setLocked(User obj, int index) {
         Boolean locked = Boolean.TRUE;
         obj.setLocked(locked);
+    }
+    
+    public void UserDataOnDemand.setNick(User obj, int index) {
+        String nick = "nick_" + index;
+        if (nick.length() > 15) {
+            nick = new Random().nextInt(10) + nick.substring(1, 15);
+        }
+        obj.setNick(nick);
     }
     
     public void UserDataOnDemand.setPassword(User obj, int index) {

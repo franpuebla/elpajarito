@@ -108,4 +108,12 @@ privileged aspect User_Roo_JavaBean {
         this.referencias = referencias;
     }
     
+    public String User.getNick() {
+        return this.nick;
+    }
+    
+    public void User.setNick(String nick) {
+        this.nick = nick;
+    }
+    
 }

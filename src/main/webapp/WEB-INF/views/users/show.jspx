@@ -11,5 +11,6 @@
         <field:display field="activationKey" id="s_fran_programacion2_trabajofinal_domain_User_activationKey" object="${user}" z="vQeVIvhgTt6MGj2hwKK1mvN2mS8="/>
         <field:display field="enabled" id="s_fran_programacion2_trabajofinal_domain_User_enabled" object="${user}" z="IvqvuhBfhw/Fx2AXh7N6ypackoc="/>
         <field:display field="locked" id="s_fran_programacion2_trabajofinal_domain_User_locked" object="${user}" z="YRyiJd/6Hhz+CMteJ0oFH8k7QlI="/>
+        <field:display field="nick" id="s_fran_programacion2_trabajofinal_domain_User_nick" object="${user}" z="77C/BnVffhcr4r1RMBDLd0iHMTE="/>
     </page:show>
 </div>

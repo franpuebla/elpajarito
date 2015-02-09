@@ -105,3 +105,6 @@ focus --class ~.domain.Referencia
 field reference --fieldName referido --type ~.domain.User --notNull
 focus --class ~.domain.User
 field set --fieldName referencias --type ~.domain.Referencia --cardinality ONE_TO_MANY --mappedBy referido
+field string --fieldName nick --sizeMin 1 --sizeMax 15 --notNull --unique
+finder add findUsersByNick --class ~.domain.User
+

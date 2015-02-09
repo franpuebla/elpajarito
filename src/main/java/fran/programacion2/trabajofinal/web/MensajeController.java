@@ -78,9 +78,9 @@ public class MensajeController {
 				String[] subTokens = tokens[i].split("@");
 				for(int j=1; j<subTokens.length; j++){
 					String referido = subTokens[j];
-					User mail = User.findUsersByEmailAddress(referido).getSingleResult();
+					User nick = User.findUsersByNick(referido).getSingleResult();
 					Referencia referencia = new Referencia();
-					referencia.setReferido(mail);
+					referencia.setReferido(nick);
 					referencia.setIdMensaje(mensaje);
 					referencia.persist();
 				}
