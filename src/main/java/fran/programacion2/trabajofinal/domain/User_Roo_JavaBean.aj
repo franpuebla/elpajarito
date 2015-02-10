@@ -116,4 +116,12 @@ privileged aspect User_Roo_JavaBean {
         this.nick = nick;
     }
     
+    public String User.getDescription() {
+        return this.description;
+    }
+    
+    public void User.setDescription(String description) {
+        this.description = description;
+    }
+    
 }

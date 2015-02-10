@@ -10,10 +10,7 @@ import net.tanesha.recaptcha.ReCaptcha;
 import net.tanesha.recaptcha.ReCaptchaFactory;
 import net.tanesha.recaptcha.ReCaptchaResponse;
 
-/**
- * @author rohit
- * 
- */
+
 public class UserRegistrationForm {
 
 	@NotNull
@@ -32,7 +29,7 @@ public class UserRegistrationForm {
 	@Size(min = 1)
 	private String repeatPassword;	
 	@NotNull
-	@Size(min = 1)
+	@Size(min = 1, max = 15)
 	private String nick;
 
 	public String getNick() {
@@ -41,6 +38,17 @@ public class UserRegistrationForm {
 
 	public void setNick(String nick) {
 		this.nick = nick;
+	}
+	
+	@Size(min = 1, max = 500)
+	private String description;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	private String recaptcha_challenge_field;

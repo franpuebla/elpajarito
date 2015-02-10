@@ -84,6 +84,7 @@ public class SignUpController {
             User.setEmailAddress(userRegistration.getEmailAddress());
             User.setFirstName(userRegistration.getFirstName());
             User.setLastName(userRegistration.getLastName());
+            User.setDescription(userRegistration.getDescription());
             User.setPassword(messageDigestPasswordEncoder.encodePassword(userRegistration.getPassword(), null));
             User.setActivationKey(activationKey);
             User.setEnabled(false);

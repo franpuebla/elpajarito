@@ -88,4 +88,9 @@ public class User {
     @Column(unique = true)
     @Size(min = 1, max = 15)
     private String nick;
+
+    /**
+     */
+    @Size(min = 1, max = 500)
+    private String description;
 }

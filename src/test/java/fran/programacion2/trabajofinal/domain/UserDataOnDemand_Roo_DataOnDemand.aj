@@ -29,6 +29,7 @@ privileged aspect UserDataOnDemand_Roo_DataOnDemand {
         User obj = new User();
         setActivationDate(obj, index);
         setActivationKey(obj, index);
+        setDescription(obj, index);
         setEmailAddress(obj, index);
         setEnabled(obj, index);
         setFirstName(obj, index);
@@ -47,6 +48,14 @@ privileged aspect UserDataOnDemand_Roo_DataOnDemand {
     public void UserDataOnDemand.setActivationKey(User obj, int index) {
         String activationKey = "activationKey_" + index;
         obj.setActivationKey(activationKey);
+    }
+    
+    public void UserDataOnDemand.setDescription(User obj, int index) {
+        String description = "description_" + index;
+        if (description.length() > 500) {
+            description = description.substring(0, 500);
+        }
+        obj.setDescription(description);
     }
     
     public void UserDataOnDemand.setEmailAddress(User obj, int index) {

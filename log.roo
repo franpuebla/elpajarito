@@ -108,3 +108,5 @@ field set --fieldName referencias --type ~.domain.Referencia --cardinality ONE_T
 field string --fieldName nick --sizeMin 1 --sizeMax 15 --notNull --unique
 finder add findUsersByNick --class ~.domain.User
 
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2015-02-10 19:04:10
+field string --fieldName description --sizeMin 1 --sizeMax 500 --class ~.domain.User

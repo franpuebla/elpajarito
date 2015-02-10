@@ -3,9 +3,7 @@
 
 package fran.programacion2.trabajofinal.web;
 
-import fran.programacion2.trabajofinal.domain.Hashtag;
 import fran.programacion2.trabajofinal.domain.Mensaje;
-import fran.programacion2.trabajofinal.domain.Referencia;
 import fran.programacion2.trabajofinal.domain.Role;
 import fran.programacion2.trabajofinal.domain.SeguidoresSeguidos;
 import fran.programacion2.trabajofinal.domain.User;
@@ -18,30 +16,6 @@ import org.springframework.format.FormatterRegistry;
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
-    
-    public Converter<Hashtag, String> ApplicationConversionServiceFactoryBean.getHashtagToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<fran.programacion2.trabajofinal.domain.Hashtag, java.lang.String>() {
-            public String convert(Hashtag hashtag) {
-                return new StringBuilder().append(hashtag.getHash()).toString();
-            }
-        };
-    }
-    
-    public Converter<Long, Hashtag> ApplicationConversionServiceFactoryBean.getIdToHashtagConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, fran.programacion2.trabajofinal.domain.Hashtag>() {
-            public fran.programacion2.trabajofinal.domain.Hashtag convert(java.lang.Long id) {
-                return Hashtag.findHashtag(id);
-            }
-        };
-    }
-    
-    public Converter<String, Hashtag> ApplicationConversionServiceFactoryBean.getStringToHashtagConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, fran.programacion2.trabajofinal.domain.Hashtag>() {
-            public fran.programacion2.trabajofinal.domain.Hashtag convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), Hashtag.class);
-            }
-        };
-    }
     
     public Converter<Mensaje, String> ApplicationConversionServiceFactoryBean.getMensajeToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<fran.programacion2.trabajofinal.domain.Mensaje, java.lang.String>() {
@@ -63,30 +37,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, fran.programacion2.trabajofinal.domain.Mensaje>() {
             public fran.programacion2.trabajofinal.domain.Mensaje convert(String id) {
                 return getObject().convert(getObject().convert(id, Long.class), Mensaje.class);
-            }
-        };
-    }
-    
-    public Converter<Referencia, String> ApplicationConversionServiceFactoryBean.getReferenciaToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<fran.programacion2.trabajofinal.domain.Referencia, java.lang.String>() {
-            public String convert(Referencia referencia) {
-                return "(no displayable fields)";
-            }
-        };
-    }
-    
-    public Converter<Long, Referencia> ApplicationConversionServiceFactoryBean.getIdToReferenciaConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, fran.programacion2.trabajofinal.domain.Referencia>() {
-            public fran.programacion2.trabajofinal.domain.Referencia convert(java.lang.Long id) {
-                return Referencia.findReferencia(id);
-            }
-        };
-    }
-    
-    public Converter<String, Referencia> ApplicationConversionServiceFactoryBean.getStringToReferenciaConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, fran.programacion2.trabajofinal.domain.Referencia>() {
-            public fran.programacion2.trabajofinal.domain.Referencia convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), Referencia.class);
             }
         };
     }
@@ -188,15 +138,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
-        registry.addConverter(getHashtagToStringConverter());
-        registry.addConverter(getIdToHashtagConverter());
-        registry.addConverter(getStringToHashtagConverter());
         registry.addConverter(getMensajeToStringConverter());
         registry.addConverter(getIdToMensajeConverter());
         registry.addConverter(getStringToMensajeConverter());
-        registry.addConverter(getReferenciaToStringConverter());
-        registry.addConverter(getIdToReferenciaConverter());
-        registry.addConverter(getStringToReferenciaConverter());
         registry.addConverter(getRoleToStringConverter());
         registry.addConverter(getIdToRoleConverter());
         registry.addConverter(getStringToRoleConverter());
