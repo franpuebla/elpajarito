@@ -9,6 +9,7 @@
 		<class>fran.programacion2.trabajofinal.domain.SeguidoresSeguidos</class>
 		<class>fran.programacion2.trabajofinal.domain.Hashtag</class>
 		<class>fran.programacion2.trabajofinal.domain.Referencia</class>
+		<class>fran.programacion2.trabajofinal.domain.Photo</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
             <!-- value="create" to build a new database on each run; value="update" to modify an existing database; value="create-drop" means the same as "create" but also drops tables when Hibernate closes; value="validate" makes no changes to the database -->

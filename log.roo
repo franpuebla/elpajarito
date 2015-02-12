@@ -110,3 +110,9 @@ finder add findUsersByNick --class ~.domain.User
 
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2015-02-10 19:04:10
 field string --fieldName description --sizeMin 1 --sizeMax 500 --class ~.domain.User
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2015-02-12 16:20:25
+entity jpa --class ~.domain.Photo --testAutomatically --permitReservedWords
+field string    --fieldName filename        --notNull
+field string    --fieldName contentType     --notNull
+web mvc all --package ~.web
+controller all  --package ~.web

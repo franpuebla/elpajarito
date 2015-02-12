@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_fran_programacion2_trabajofinal_domain_Photo" modelAttribute="photo" path="/photos" versionField="Version" z="eoI6BJQ6tBYrsJDLvZM+tXOZNqU=">
+        <field:input field="filename" id="c_fran_programacion2_trabajofinal_domain_Photo_filename" required="true" z="ORtM5/PDa2Do3qCyL0Fe0i0eu1M="/>
+        <field:input field="contentType" id="c_fran_programacion2_trabajofinal_domain_Photo_contentType" required="true" z="4uKM5myHjH5hcnsZ/1yPbXN022E="/>
+        <field:textarea field="content" id="c_fran_programacion2_trabajofinal_domain_Photo_content" required="true" z="ZZcG2Lu8EbsDPBKZ0gM5XqaheK8="/>
+        <field:textarea field="url" id="c_fran_programacion2_trabajofinal_domain_Photo_url" z="3iYQwJdXyUzTos73+EmRz/KL8SI="/>
+    </form:update>
+</div>

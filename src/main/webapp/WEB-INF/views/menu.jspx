@@ -23,5 +23,17 @@
             <menu:item id="i_seguidoresseguidos_new" messageCode="global_menu_new" url="/seguidoresseguidoses?form" z="FxRiKSEV2yXU1SCqapT3WDEEXsI="/>
             <menu:item id="i_seguidoresseguidos_list" messageCode="global_menu_list" url="/seguidoresseguidoses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="1nz9GgLKSuvxISoP6N6VYQvpbnQ="/>
         </menu:category>
+        <menu:category id="c_referencia" z="sMke6PQdU8Cn3WOiaFO6QGdogG0=">
+            <menu:item id="i_referencia_new" messageCode="global_menu_new" url="/referencias?form" z="AYNRWwLx0uNNcN18Uu1pV6+tJOU="/>
+            <menu:item id="i_referencia_list" messageCode="global_menu_list" url="/referencias?page=1&amp;size=${empty param.size ? 10 : param.size}" z="aT+wKLJ8epGqF4jvu9wfNQSTzGk="/>
+        </menu:category>
+        <menu:category id="c_photo" z="KbG2mvQ9HaHwKv3MeTOpbR5PPks=">
+            <menu:item id="i_photo_new" messageCode="global_menu_new" url="/photos?form" z="vyZmZInS/3oGZQjjeRkPSv2J2tY="/>
+            <menu:item id="i_photo_list" messageCode="global_menu_list" url="/photos?page=1&amp;size=${empty param.size ? 10 : param.size}" z="PtmtSBbiRER6TzG93rFJ/MUfCVI="/>
+        </menu:category>
+        <menu:category id="c_hashtag" z="cvkjrwk7aSUkbFQAeIh9js8k8LM=">
+            <menu:item id="i_hashtag_new" messageCode="global_menu_new" url="/hashtags?form" z="fUFy7T7Pxvm1NPGMoT6/Obmw6U0="/>
+            <menu:item id="i_hashtag_list" messageCode="global_menu_list" url="/hashtags?page=1&amp;size=${empty param.size ? 10 : param.size}" z="uQUJ5pqOKd6sh2Z7LpsR+Yeqmkc="/>
+        </menu:category>
     </menu:menu>
 </div>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_fran_programacion2_trabajofinal_domain_Hashtag" object="${hashtag}" path="/hashtags" z="T5WrVgvUpM43MyQKdF0E++5vda4=">
+        <field:display field="idMensaje" id="s_fran_programacion2_trabajofinal_domain_Hashtag_idMensaje" object="${hashtag}" z="mHJBbBvC7BwUUxKCd2HGBns2iBw="/>
+        <field:display field="hash" id="s_fran_programacion2_trabajofinal_domain_Hashtag_hash" object="${hashtag}" z="qTYHBf7NpVU+8T6K5TDKwHh3OZA="/>
+    </page:show>
+</div>

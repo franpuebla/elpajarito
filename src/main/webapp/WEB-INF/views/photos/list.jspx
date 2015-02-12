@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_fran_programacion2_trabajofinal_domain_Photo" items="${photos}" z="K43GwFuKc76+zK9n29ZZEGCQI+4=">
+        <table:table data="${photos}" id="l_fran_programacion2_trabajofinal_domain_Photo" path="/photos" update="false" z="Z7gWNil0Tz3vx5XYNMo15skxhuA=">
+            <table:column id="c_fran_programacion2_trabajofinal_domain_Photo_filename" property="filename" z="tWh1G7teuxGJBKWZQHXTNdJHvpY="/>
+            <table:column id="c_fran_programacion2_trabajofinal_domain_Photo_contentType" property="contentType" z="JLyuGeHjb0OWQKBn9tQ/ZE9Zcf8="/>
+            <table:column id="c_fran_programacion2_trabajofinal_domain_Photo_content" property="content" z="HeL9VqgWcxkaOeGKyOigaHr3pjk="/>
+            <table:column id="c_fran_programacion2_trabajofinal_domain_Photo_url" property="url" z="7FEqEDUPKG709iI8UA+Dp1R9zAQ="/>
+        </table:table>
+    </page:list>
+</div>

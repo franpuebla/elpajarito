@@ -1,14 +1,11 @@
 package fran.programacion2.trabajofinal.web;
 import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import fran.programacion2.trabajofinal.domain.Hashtag;
 import fran.programacion2.trabajofinal.domain.Mensaje;
 import fran.programacion2.trabajofinal.domain.Referencia;
 import fran.programacion2.trabajofinal.domain.User;
-
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +25,8 @@ import org.springframework.roo.addon.web.mvc.controller.json.RooWebJson;
 @RooWebScaffold(path = "mensajes", formBackingObject = Mensaje.class)
 @RooWebJson(jsonObject = Mensaje.class)
 public class MensajeController {
-	
-	@RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
+
+    @RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
     public ResponseEntity<String> createFromJson(@RequestBody String json) {
         Mensaje mensaje = Mensaje.fromJsonToMensaje(json);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -37,59 +34,46 @@ public class MensajeController {
         mensaje.setAutor(User.findUsersByEmailAddress(userName).getSingleResult());
         mensaje.setFechaPublicacion(new Date());
         mensaje.persist();
-        
-        
         parsearMensaje(mensaje);
-        
-        
-        
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
         return new ResponseEntity<String>(headers, HttpStatus.CREATED);
     }
-	
-	private void parsearMensaje(Mensaje mensaje){
-		String[] tokens = mensaje.getTexto().split("\\s+");	
-		parsearHashtag(tokens, mensaje);
-		parsearReferencias(tokens, mensaje);
-	}
-	private void parsearHashtag(String[] tokens, Mensaje mensaje){
-		
-		for(int i=0; i <tokens.length; i++){
-			if(tokens[i].contains("#")){
-				String[] subTokens = tokens[i].split("#");
-				for(int j=1; j<subTokens.length; j++){
-					String hash = subTokens[j];
-					Hashtag hashtag = new Hashtag();
-					hashtag.setHash(hash);
-					hashtag.setIdMensaje(mensaje);
-					hashtag.persist();
-					
-				}
-			}
-				
-		}
-		
-	}
-	private void parsearReferencias(String[] tokens, Mensaje mensaje){
-		
-		for(int i=0; i <tokens.length; i++){
-			if(tokens[i].contains("@")){
-				String[] subTokens = tokens[i].split("@");
-				for(int j=1; j<subTokens.length; j++){
-					String referido = subTokens[j];
-					User nick = User.findUsersByNick(referido).getSingleResult();
-					Referencia referencia = new Referencia();
-					referencia.setReferido(nick);
-					referencia.setIdMensaje(mensaje);
-					referencia.persist();
-				}
-			}
-		}
-	}
-	
-	
-	
-	
-	
+
+    private void parsearMensaje(Mensaje mensaje) {
+        String[] tokens = mensaje.getTexto().split("\\s+");
+        parsearHashtag(tokens, mensaje);
+        parsearReferencias(tokens, mensaje);
+    }
+
+    private void parsearHashtag(String[] tokens, Mensaje mensaje) {
+        for (int i = 0; i < tokens.length; i++) {
+            if (tokens[i].contains("#")) {
+                String[] subTokens = tokens[i].split("#");
+                for (int j = 1; j < subTokens.length; j++) {
+                    String hash = subTokens[j];
+                    Hashtag hashtag = new Hashtag();
+                    hashtag.setHash(hash);
+                    hashtag.setIdMensaje(mensaje);
+                    hashtag.persist();
+                }
+            }
+        }
+    }
+
+    private void parsearReferencias(String[] tokens, Mensaje mensaje) {
+        for (int i = 0; i < tokens.length; i++) {
+            if (tokens[i].contains("@")) {
+                String[] subTokens = tokens[i].split("@");
+                for (int j = 1; j < subTokens.length; j++) {
+                    String referido = subTokens[j];
+                    User nick = User.findUsersByNick(referido).getSingleResult();
+                    Referencia referencia = new Referencia();
+                    referencia.setReferido(nick);
+                    referencia.setIdMensaje(mensaje);
+                    referencia.persist();
+                }
+            }
+        }
+    }
 }
