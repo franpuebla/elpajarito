@@ -1,5 +1,6 @@
 package fran.programacion2.trabajofinal.web;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Random;
 
@@ -21,7 +22,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import fran.programacion2.trabajofinal.domain.Photo;
 import fran.programacion2.trabajofinal.domain.User;
 
 @RequestMapping("/signup/**")
@@ -69,16 +72,28 @@ public class SignUpController {
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String create(@Valid UserRegistrationForm userRegistration, BindingResult result, Model model, HttpServletRequest request) {
-        validator.validate(userRegistration, result);
-        if (result.hasErrors()) {
+    public String create(@Valid UserRegistrationForm userRegistration, BindingResult result, Model model, HttpServletRequest request, @RequestParam("content") MultipartFile content) throws IOException {
+       // validator.validate(userRegistration, result);
+      //  if (result.hasErrors()) {
         	
-            return createForm(model);
-        } else {
+        //   return createForm(model);
+        //} else {
+    	// TODO HACER CHECKEO A MANOPLA
+    	
             Random random = new Random(System.currentTimeMillis());
             String activationKey = "activationKey:" + random.nextInt();
+            
+            Photo photo = new Photo();
+            photo.setContentType(content.getContentType());
+	        photo.setFilename(content.getOriginalFilename());
+	        photo.setContent(content.getBytes());
+	       
+	        photo.persist();
+	     //   return show(photo.getId(),model); 
+            
 
             User User = new User();
+            User.setIdPhoto(photo);
             User.setActivationDate(null);
             User.setNick(userRegistration.getNick());
             User.setEmailAddress(userRegistration.getEmailAddress());
@@ -98,7 +113,7 @@ public class SignUpController {
     		mail.setText("Hi "+User.getFirstName()+",\n. You had registered with us. Please click on this link to activate your account - <a href=\"http://localhost:8080/elpajarito/signup?emailAddress="+User.getEmailAddress()+"&activate="+activationKey+"\">Activate Link</a>. \n Thanks Tyical Security Admin");
             mailSender.send(mail);
             return "signup/thanks";
-        }
+      //  }
     }
 
     @RequestMapping(value = "/index", produces = "text/html")

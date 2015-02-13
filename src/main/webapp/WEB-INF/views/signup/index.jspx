@@ -5,8 +5,10 @@
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:spring="http://www.springframework.org/tags"
 version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:create id="fc_com_training_spring_roo_model_User" modelAttribute="User" path="signup" render="${empty dependencies}" z="YNTiVLwXp22CNiPqmEgdy1d/84Q=">
+    
+    <form:create id="fc_com_training_spring_roo_model_User" modelAttribute="User" multipart="true" path="signup" render="${empty dependencies}" z="YNTiVLwXp22CNiPqmEgdy1d/84Q=">
         <field:input field="nick" id="c_fran_programacion2_trabajofinal_domain_User_nick" max="15" min="1" required="true" z="Y6+u4mmB62YvObrJ62xYdFRMcZc="/>
         <field:input field="firstName" id="c_com_training_spring_roo_model_User_firstName" min="1" required="true" z="GZYqRDV261EfLKuDhEsvm9ahxQE="/>
         <field:input field="lastName" id="c_com_training_spring_roo_model_User_lastName" min="1" required="true" z="hTY2m8OG6Q/QddJ9nO+0ew6Y9Xo="/>
@@ -14,7 +16,21 @@ version="2.0">
         <field:input field="emailAddress" id="c_com_training_spring_roo_model_User_emailAddress" min="1" required="true" validationMessageCode="field_invalid_email" z="TGUZZAO/bcy8+d/SrMBtV3A7ZKs="/>
         <field:input field="password" id="c_com_training_spring_roo_model_User_password" min="1" required="true" z="zOoS/ApRQh9dE6Qd4sARUqWBy1k=" type="password"/>
         <field:input field="repeatPassword" id="c_com_training_spring_roo_model_User_repeat_password" min="1" required="true" type="password"/>
+
+		<field:input field="filename" id="c_fran_programacion2_trabajofinal_domain_Photo_filename" render="false" z="user-managed"/>
+        <field:input field="contentType" id="c_fran_programacion2_trabajofinal_domain_Photo_contentType" render="false" z="user-managed"/>
+        <field:input field="content" id="c_fran_programacion2_trabajofinal_domain_Photo_content" required="true" type="file" z="user-managed"/>
+        <field:input field="url" id="c_fran_programacion2_trabajofinal_domain_Photo_url" render="false" z="user-managed"/>     
+     
         <div class="form-group pull-right">${captcha_form}</div>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_training_spring_roo_model_User" render="${not empty dependencies}" z="kN6hE45zc+oebCt9qMlobHeTD/o="/>
+	
+	<!-- <form:create id="fc_fran_programacion2_trabajofinal_domain_Photo" modelAttribute="photo" multipart="true" path="/photos/savepho" render="${empty dependencies}" z="user-managed">
+        
+    </form:create>
+     <form:dependency dependencies="${dependencies}" id="d_fran_programacion2_trabajofinal_domain_Photo" render="${not empty dependencies}" z="oTvk8om9tL3zmHXhwOciZzKFVoI="/>
+	
+    <form:dependency dependencies="${dependencies}" id="d_fran_programacion2_trabajofinal_domain_Photo" render="${not empty dependencies}" z="oTvk8om9tL3zmHXhwOciZzKFVoI="/>
+	-->
 </div>

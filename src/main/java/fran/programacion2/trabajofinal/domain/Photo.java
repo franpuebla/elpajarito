@@ -32,5 +32,5 @@ public class Photo {
     
     @Transient
     @Size(max = 100)
-    private String url ;
+    private String url;
 }

@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @RooJavaBean
 @RooToString
@@ -93,4 +94,9 @@ public class User {
      */
     @Size(min = 1, max = 500)
     private String description;
+
+    /**
+     */
+    @ManyToOne
+    private Photo idPhoto;
 }

@@ -4,6 +4,7 @@
 package fran.programacion2.trabajofinal.domain;
 
 import fran.programacion2.trabajofinal.domain.Mensaje;
+import fran.programacion2.trabajofinal.domain.Photo;
 import fran.programacion2.trabajofinal.domain.Referencia;
 import fran.programacion2.trabajofinal.domain.SeguidoresSeguidos;
 import fran.programacion2.trabajofinal.domain.User;
@@ -122,6 +123,14 @@ privileged aspect User_Roo_JavaBean {
     
     public void User.setDescription(String description) {
         this.description = description;
+    }
+    
+    public Photo User.getIdPhoto() {
+        return this.idPhoto;
+    }
+    
+    public void User.setIdPhoto(Photo idPhoto) {
+        this.idPhoto = idPhoto;
     }
     
 }

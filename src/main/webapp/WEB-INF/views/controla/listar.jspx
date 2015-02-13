@@ -34,7 +34,7 @@
  
   <h1>Ejemplo con AJAX</h1>
   
-  	<table border="1">
+  	<table border="1" class="table table-striped">
   		<TBODY id="contenidoTabla"></TBODY>
 	</table>
   

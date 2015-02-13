@@ -116,3 +116,5 @@ field string    --fieldName filename        --notNull
 field string    --fieldName contentType     --notNull
 web mvc all --package ~.web
 controller all  --package ~.web
+field reference --fieldName idPhoto --type ~.domain.Photo --class ~.domain.User
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2015-02-12 21:16:20

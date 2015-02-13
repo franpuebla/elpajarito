@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
 	$("body").on("click","#botonAjax", function(event){
 		var id = $(this).data("objid");
-		var url = "../mensajes/"+id;
+		var url = "mensajes/"+id;
 		$.ajax({
 			type:'POST',
 			headers: {Accept: 'application/json'},
@@ -36,7 +36,7 @@ $(document).ready(function(){
 	
 	$("body").on("click","#botonAjaxBorrar", function(event){
 		var id = $(this).data("objid");
-		var url = "../mensajes/"+id;
+		var url = "mensajes/"+id;
 		$.ajax({
 			type:'DELETE',
 			headers: {Accept: 'application/json'},
@@ -51,7 +51,7 @@ $(document).ready(function(){
 
 	$("body").on("click","#botonAjaxAgregar", function(event){
 		var texto = $("#formTexto").val();
-		var url = "../mensajes/";
+		var url = "mensajes/";
 		var data = JSON.stringify({texto: texto});
 		$.ajax({
 			type:'POST',
@@ -72,7 +72,7 @@ $(document).ready(function(){
 		var texto = $("#formTexto").val();
 		
 		var version = $("#formVersion").val();
-		var url = "../mensajes/"+id;
+		var url = "mensajes/"+id;
 		//var data = "{'id':"+id+",'nombre':'"+nombre+"','documento':'"+documento+"', 'version':"+version+"}";
 		var data = JSON.stringify(data = {id: id, texto:texto,  version: version});
 		$.ajax({
@@ -87,14 +87,14 @@ $(document).ready(function(){
 		});
 	});		
 	
-	$(document).ready(function(){
-		cargarLista();
+	$("#mesajeTable").ready(function(){
+	//	cargarLista();
 	});
-
+	
+	
 	
 	function cargarLista(){
-		var id = $(this).data("objid");
-		var url = "../mensajes/";
+		var url = "mensajes/getAll";
 		$.ajax({
 			type:'GET',
 			headers: {Accept: 'application/json'},

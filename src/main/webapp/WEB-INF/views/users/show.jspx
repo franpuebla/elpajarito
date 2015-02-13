@@ -13,5 +13,6 @@
         <field:display field="locked" id="s_fran_programacion2_trabajofinal_domain_User_locked" object="${user}" z="YRyiJd/6Hhz+CMteJ0oFH8k7QlI="/>
         <field:display field="nick" id="s_fran_programacion2_trabajofinal_domain_User_nick" object="${user}" z="77C/BnVffhcr4r1RMBDLd0iHMTE="/>
         <field:display field="description" id="s_fran_programacion2_trabajofinal_domain_User_description" object="${user}" z="dhWBXIZKlEWVCjlRrqNfEMbgizs="/>
+        <field:display field="idPhoto" id="s_fran_programacion2_trabajofinal_domain_User_idPhoto" object="${user}" z="ZoJQhtP5VAIZDXKhx45rhh8UdEY="/>
     </page:show>
 </div>

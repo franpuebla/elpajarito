@@ -17,5 +17,6 @@
         <field:simple field="referencias" id="c_fran_programacion2_trabajofinal_domain_User_referencias" messageCode="entity_reference_not_managed" messageCodeAttribute="Referencia" z="nHxBtRexIX4ePP5IlhLpizEqLTg="/>
         <field:input field="nick" id="c_fran_programacion2_trabajofinal_domain_User_nick" max="15" min="1" required="true" z="Y6+u4mmB62YvObrJ62xYdFRMcZc="/>
         <field:textarea field="description" id="c_fran_programacion2_trabajofinal_domain_User_description" z="aHn+tO2MhqceSm7IW0FFeGReGms="/>
+        <field:select field="idPhoto" id="c_fran_programacion2_trabajofinal_domain_User_idPhoto" itemValue="id" items="${photos}" path="/photos" z="m7XAjOaFe5SG+KZ7rNs6Wo8x/Hg="/>
     </form:update>
 </div>

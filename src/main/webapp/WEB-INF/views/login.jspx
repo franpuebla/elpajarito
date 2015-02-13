@@ -46,7 +46,7 @@
 	        </script> -->
 
         <div class="submit">
-        	<script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
+        	
             <button type="submit" class="btn btn-primary btn-lg btn-block" id="proceed"><spring:message code="button_submit"/></button>
 			<button type="reset" class="btn btn-default btn-sm btn-block" id="reset"><spring:message code="button_reset"/></button>
 

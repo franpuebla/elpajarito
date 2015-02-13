@@ -3,6 +3,10 @@
  */
 package fran.programacion2.trabajofinal.web;
 
+import javax.persistence.Basic;
+import javax.persistence.FetchType;
+import javax.persistence.Lob;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -31,6 +35,56 @@ public class UserRegistrationForm {
 	@NotNull
 	@Size(min = 1, max = 15)
 	private String nick;
+
+  
+    private String filename;
+
+    /**
+     */
+  
+    private String contentType;
+    
+    @NotNull
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    private byte[] content;
+    
+    @Transient
+    @Size(max = 100)
+    private String url;
+	
+	
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
+	public String getContentType() {
+		return contentType;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+
+	public byte[] getContent() {
+		return content;
+	}
+
+	public void setContent(byte[] content) {
+		this.content = content;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
 	public String getNick() {
 		return nick;
