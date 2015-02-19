@@ -87,9 +87,7 @@ $(document).ready(function(){
 		});
 	});		
 	
-	$("#mesajeTable").ready(function(){
-	//	cargarLista();
-	});
+	
 	
 	
 	
@@ -117,3 +115,4 @@ $(document).ready(function(){
 		});
 	}
 });
+

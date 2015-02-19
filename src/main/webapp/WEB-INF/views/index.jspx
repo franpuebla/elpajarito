@@ -12,9 +12,21 @@
     <spring:message code="application_name" htmlEscape="false" var="app_name"/>
     <spring:message arguments="${app_name}" code="welcome_titlepane" htmlEscape="false" var="title"/>
 
- 	
-  <table border="1" id="mesajeTable" class="table table-striped">
+ 
+   <table border="1" id="mesajeTable" class="table table-striped">
   		<TBODY id="contenidoTabla"></TBODY>
+  		<tr>
+		<td>Autor</td><td>TEXTO</td>
+		</tr>
+		<c:forEach var="mensaje" items="${mensajesUser}">
+			<tr>	
+				<td>${mensaje.autor.emailAddress}</td>
+				<td>${mensaje.texto}</td>
+				<td>${mensaje.fechaPublicacion}</td>	
+				<td><div id='botonAjaxBorrar' class='btn btn-danger' data-objid="${mensaje.id}" >Borrar</div></td>
+				<td><div id='botonAjaxAgregar' class='btn btn-danger' data-objid="${mensaje.id}" >Ver</div></td>
+			</tr>
+		</c:forEach>
 	</table>
   
   	<div id="contenedorFormulario">
