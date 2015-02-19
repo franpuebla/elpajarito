@@ -16,9 +16,9 @@
    <table border="1" id="mesajeTable" class="table table-striped">
   		<TBODY id="contenidoTabla"></TBODY>
   		<tr>
-		<td>Autor</td><td>TEXTO</td>
+		<td>Autor</td><td>Texto</td><td>FechaPublicacion</td><td>Borrar</td><td>Detalles</td>
 		</tr>
-		<c:forEach var="mensaje" items="${mensajesUser}">
+		<c:forEach var="mensaje" items="${mensajes}">
 			<tr>	
 				<td>${mensaje.autor.emailAddress}</td>
 				<td>${mensaje.texto}</td>

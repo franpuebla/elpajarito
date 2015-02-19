@@ -25,7 +25,7 @@ import javax.persistence.OneToMany;
 @RooJpaActiveRecord
 @RooJson
 @RooWebJson(jsonObject = MensajeController.class)
-public class Mensaje {
+public class Mensaje implements Comparable<Mensaje> {
 
     /**
      */
@@ -61,4 +61,18 @@ public class Mensaje {
      */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMensaje")
     private Set<Referencia> referencias = new HashSet<Referencia>();
+
+    @Override
+    public int compareTo(Mensaje otroMensaje) {
+    	 Date a = getFechaPublicacion();
+         Date b = otroMensaje.getFechaPublicacion();
+         if (a.after(b)) 
+           return -1;
+         else if (a.equals(b)) // it's equals
+            return 0;
+         else
+            return 1;
+      
+    }
+
 }

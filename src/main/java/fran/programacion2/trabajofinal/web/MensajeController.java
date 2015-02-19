@@ -1,4 +1,6 @@
 package fran.programacion2.trabajofinal.web;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +10,7 @@ import javax.validation.Valid;
 import fran.programacion2.trabajofinal.domain.Hashtag;
 import fran.programacion2.trabajofinal.domain.Mensaje;
 import fran.programacion2.trabajofinal.domain.Referencia;
+import fran.programacion2.trabajofinal.domain.SeguidoresSeguidos;
 import fran.programacion2.trabajofinal.domain.User;
 
 import org.springframework.http.HttpHeaders;
@@ -37,8 +40,29 @@ public class MensajeController {
     public ResponseEntity<String> listJson() {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json; charset=utf-8");
-        List<Mensaje> result = Mensaje.findAllMensajes();
-        return new ResponseEntity<String>(Mensaje.toJsonArray(result), headers, HttpStatus.OK);
+        
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userName = auth.getName(); //get logged in username
+        User user = User.findUsersByEmailAddress(userName).getSingleResult();
+       
+		List<Mensaje> mensajesUser = Mensaje.findAllMensajesforUser(user);
+		
+		List<User> seguidos = SeguidoresSeguidos.findSeguidos(user);
+        
+        List<Mensaje> listaGrande = new ArrayList<Mensaje>();
+       
+        for(int i = 0 ; i < seguidos.size() ; i++){
+		 	User seguido = seguidos.get(i);
+		 	
+		 	List<Mensaje> mensajesdeSeguido = Mensaje.findAllMensajesforUser(seguido);
+		 	listaGrande.addAll(mensajesdeSeguido);
+		 	
+        }
+        listaGrande.addAll(mensajesUser);
+        Collections.sort(listaGrande);
+        
+        
+        return new ResponseEntity<String>(Mensaje.toJsonArray(listaGrande), headers, HttpStatus.OK);
     }
 	
     @RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
