@@ -11,12 +11,29 @@
     <jsp:output omit-xml-declaration="yes"/>
     <spring:message code="application_name" htmlEscape="false" var="app_name"/>
     <spring:message arguments="${app_name}" code="welcome_titlepane" htmlEscape="false" var="title"/>
-
+	
+	<div id="contenedorFormulario">
+	  		
+	  		<form id="datosFormulario">
+	  		<div style="text-align:center;">
+		  		<span id="campoId">&#160;</span><input type="hidden" name="id" id="formId"/>
+		  		<!-- INPUT type="text" name="texto" id="formTexto"/> -->
+		  		<span id="campoTexto"></span><textarea rows="5" cols="50" name="texto" id="formTexto" value="Enter your tweet here..." onclick="this.value='';">Enter your tweet here...</textarea>
+		  		<span id="campoVersion">&#160;</span><input type="hidden" name="version" id="formVersion"/>
+	  		</div>
+	  		 
+	  		<div style="text-align:center;">
+	  			<span class="btn btn-danger" id="botonBorrarFormulario">borrar formulario</span>
+	  			<span class="btn btn-primary" id="botonAjaxAgregar">agregar mensaje</span>
+	  			<span class="btn btn-primary" id="botonAjaxEditar">editar mensaje</span></div>
+	  		</form>
+	  </div>
+	
  
-   <table border="1" id="mesajeTable" class="table table-striped">
+   <table border="1" id="mesajeTable" class="table table-striped" style="text-align:center;">
   		<TBODY id="contenidoTabla"></TBODY>
   		<tr>
-		<td>Autor</td><td>Texto</td><td>FechaPublicacion</td><td>Borrar</td><td>Detalles</td>
+		<th>Autor</th><th>Texto</th><th>Fecha de Publicacion</th><th>Borrar</th><th>Detalles</th>
 		</tr>
 		<c:forEach var="mensaje" items="${mensajes}">
 			<tr>	
@@ -24,30 +41,9 @@
 				<td>${mensaje.texto}</td>
 				<td>${mensaje.fecha}</td>	
 				<td><div id='botonAjaxBorrar' class='btn btn-danger' data-objid="${mensaje.id}" >Borrar</div></td>
-				<td><div id='botonAjaxAgregar' class='btn btn-danger' data-objid="${mensaje.id}" >Ver</div></td>
+				<td><div id='botonAjax' class='btn btn-danger' data-objid="${mensaje.id}" >Ver</div></td>
 			</tr>
 		</c:forEach>
 	</table>
   
-  	<div id="contenedorFormulario">
-  		
-  		<form id="datosFormulario">
-  		<div>
-	  		<span>Texto: </span>
-	  			<INPUT type="text" name="texto" id="formTexto"/>
-	  		<span id="campoTexto"></span>
-  		</div>
-  		<div>
-  		<span id="campoVersion">&#160;</span><input type="hidden" name="version" id="formVersion"/></div> 
-  		<div>
-  			<span class="btn btn-danger" id="botonBorrarFormulario">borrar formulario</span>
-  			<span class="btn btn-primary" id="botonAjaxAgregar">agregar mensaje</span>
-  			<span class="btn btn-primary" id="botonAjaxEditar">editar mensaje</span></div>
-  		</form>
-  	</div>
-  	
-    
-         
-      
-
 </div>

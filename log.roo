@@ -119,3 +119,4 @@ controller all  --package ~.web
 field reference --fieldName idPhoto --type ~.domain.Photo --class ~.domain.User
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2015-02-12 21:16:20
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2015-02-23 23:36:10
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2015-02-24 00:46:25

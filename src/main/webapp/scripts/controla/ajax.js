@@ -99,7 +99,7 @@ $(document).ready(function(){
 			url: url,
 			data: {},
 			success: function(data) {
-				var datoHTML = "<tr><td>Autor</td><td>Texto</td><td>FechaPublicacion</td><td>Borrar</td><td>Detalles</td></tr>";
+				var datoHTML = "<tr><th>Autor</th><th>Texto</th><th>Fecha de Publicacion</th><th>Borrar</th><th>Detalles</th></tr>";
 				$.each(data, function(i, mensaje){
 					datoHTML += "" +
 							"<tr>" +
@@ -107,7 +107,7 @@ $(document).ready(function(){
 								"<td>"+mensaje.texto+"</td>" +
 								"<td>"+mensaje.fecha+"</td>" +
 								"<td><div id='botonAjaxBorrar' class='btn btn-danger' data-objid='"+mensaje.id+"'>Borrar</div></td>" +
-								"<td><div id='botonAjaxAgregar' class='btn btn-danger' data-objid='"+mensaje.id+"'>Ver</div></td>" +
+								"<td><div id='botonAjax' class='btn btn-danger' data-objid='"+mensaje.id+"'>Ver</div></td>" +
 							"</tr>";
 				});
 				$("#contenidoTabla").html(datoHTML);
