@@ -47,7 +47,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Mensaje, String> ApplicationConversionServiceFactoryBean.getMensajeToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<fran.programacion2.trabajofinal.domain.Mensaje, java.lang.String>() {
             public String convert(Mensaje mensaje) {
-                return new StringBuilder().append(mensaje.getTexto()).append(' ').append(mensaje.getFechaPublicacion()).toString();
+                return new StringBuilder().append(mensaje.getTexto()).append(' ').append(mensaje.getFecha()).append(' ').append(mensaje.getFechaPublicacion()).toString();
             }
         };
     }

@@ -5,7 +5,6 @@ package fran.programacion2.trabajofinal.web;
 
 import fran.programacion2.trabajofinal.domain.Mensaje;
 import fran.programacion2.trabajofinal.web.MensajeController;
-import java.util.List;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +27,6 @@ privileged aspect MensajeController_Roo_Controller_Json {
         }
         return new ResponseEntity<String>(mensaje.toJson(), headers, HttpStatus.OK);
     }
-    
-  
     
     @RequestMapping(value = "/jsonArray", method = RequestMethod.POST, headers = "Accept=application/json")
     public ResponseEntity<String> MensajeController.createFromJsonArray(@RequestBody String json) {

@@ -105,7 +105,7 @@ $(document).ready(function(){
 							"<tr>" +
 								"<td>"+mensaje.autor.emailAddress+"</td>" +
 								"<td>"+mensaje.texto+"</td>" +
-								"<td>"+mensaje.fechaPublicacion+"</td>" +
+								"<td>"+mensaje.fecha+"</td>" +
 								"<td><div id='botonAjaxBorrar' class='btn btn-danger' data-objid='"+mensaje.id+"'>Borrar</div></td>" +
 								"<td><div id='botonAjaxAgregar' class='btn btn-danger' data-objid='"+mensaje.id+"'>Ver</div></td>" +
 							"</tr>";

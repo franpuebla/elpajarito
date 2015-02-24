@@ -9,5 +9,5 @@
         <field:frame field="url" id="s_fran_programacion2_trabajofinal_domain_Photo_url" object="${photo}" render="true" z="user-managed"/>
     </page:show>
      -->
-     <img src="showpho/${itemId}" height="256px"/>
+    <img height="256px" src="showpho/${itemId}"/>
 </div>

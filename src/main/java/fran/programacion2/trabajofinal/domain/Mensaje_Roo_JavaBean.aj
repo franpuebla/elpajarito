@@ -28,6 +28,14 @@ privileged aspect Mensaje_Roo_JavaBean {
         this.autor = autor;
     }
     
+    public String Mensaje.getFecha() {
+        return this.fecha;
+    }
+    
+    public void Mensaje.setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+    
     public Date Mensaje.getFechaPublicacion() {
         return this.fechaPublicacion;
     }

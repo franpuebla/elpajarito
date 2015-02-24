@@ -2,21 +2,30 @@ package fran.programacion2.trabajofinal.domain;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.persistence.ManyToOne;
+
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.persistence.TypedQuery;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.json.RooJson;
+
 import fran.programacion2.trabajofinal.web.MensajeController;
+
 import org.springframework.roo.addon.web.mvc.controller.json.RooWebJson;
+
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
 
@@ -38,6 +47,8 @@ public class Mensaje implements Comparable<Mensaje> {
     @NotNull
     @ManyToOne
     private User autor;
+    
+    private String fecha;
 
     /**
      */

@@ -71,7 +71,9 @@ public class MensajeController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userName = auth.getName(); //get logged in username
         mensaje.setAutor(User.findUsersByEmailAddress(userName).getSingleResult());
-        mensaje.setFechaPublicacion(new Date());
+        Date date = new Date();
+        mensaje.setFechaPublicacion(date);
+        mensaje.setFecha(date.toString());
         mensaje.persist();
         parsearMensaje(mensaje);
         HttpHeaders headers = new HttpHeaders();

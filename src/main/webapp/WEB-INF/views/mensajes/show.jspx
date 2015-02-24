@@ -6,5 +6,6 @@
         <field:display field="texto" id="s_fran_programacion2_trabajofinal_domain_Mensaje_texto" object="${mensaje}" z="MmgGS/25kAeyUFELFKEeAvyzoPU="/>
         <field:display field="autor" id="s_fran_programacion2_trabajofinal_domain_Mensaje_autor" object="${mensaje}" z="KBPlY2lbtX+3H+M+wWZfkESkGHE="/>
         <field:display date="true" dateTimePattern="${mensaje_fechapublicacion_date_format}" field="fechaPublicacion" id="s_fran_programacion2_trabajofinal_domain_Mensaje_fechaPublicacion" object="${mensaje}" z="8XEmdXF1Vkzron1MKavzfSBX+9g="/>
+        <field:display field="fecha" id="s_fran_programacion2_trabajofinal_domain_Mensaje_fecha" object="${mensaje}" z="cArusYEZj6hqrkVixjjk5+LApi0="/>
     </page:show>
 </div>
