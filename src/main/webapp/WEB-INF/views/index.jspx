@@ -16,16 +16,16 @@
 	  		
 	  		<form id="datosFormulario">
 	  		<div style="text-align:center;">
-		  		<span id="campoId">&#160;</span><input type="hidden" name="id" id="formId"/>
+		  		<span id="campoId">&#160;</span><input type="hidden" id="formId"/>
 		  		<!-- INPUT type="text" name="texto" id="formTexto"/> -->
-		  		<span id="campoTexto"></span><textarea rows="5" cols="50" name="texto" id="formTexto" value="Enter your tweet here..." onclick="this.value='';">Enter your tweet here...</textarea>
+		  		<span id="campoTexto"></span><textarea rows="5" cols="50" id="formTexto">Enter your tweet here...</textarea>
 		  		<span id="campoVersion">&#160;</span><input type="hidden" name="version" id="formVersion"/>
 	  		</div>
 	  		 
 	  		<div style="text-align:center;">
-	  			<span class="btn btn-danger" id="botonBorrarFormulario">borrar formulario</span>
-	  			<span class="btn btn-primary" id="botonAjaxAgregar">agregar mensaje</span>
-	  			<span class="btn btn-primary" id="botonAjaxEditar">editar mensaje</span></div>
+	  			<span class="btn btn-danger" id="botonBorrarFormulario">Limpiar</span>
+	  			<span class="btn btn-primary" id="botonAjaxEditar">Editar</span>
+	  			<span class="btn btn-success" id="botonAjaxAgregar">Publicar</span></div>		
 	  		</form>
 	  </div>
 	
@@ -41,7 +41,7 @@
 				<td>${mensaje.texto}</td>
 				<td>${mensaje.fecha}</td>	
 				<td><div id='botonAjaxBorrar' class='btn btn-danger' data-objid="${mensaje.id}" >Borrar</div></td>
-				<td><div id='botonAjax' class='btn btn-danger' data-objid="${mensaje.id}" >Ver</div></td>
+				<td><div id='botonAjax' class='btn btn-danger' data-objid="${mensaje.id}" data-texto="${mensaje.texto}" >Ver</div></td>
 			</tr>
 		</c:forEach>
 	</table>

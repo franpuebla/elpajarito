@@ -1,9 +1,13 @@
 $(document).ready(function(){
 	
+	
 	$("body").on("click","#botonAjax", function(event){
 		var id = $(this).data("objid");
-		var url = "mensajes/"+id;
-		$.ajax({
+		var texto = $(this).data("texto");
+		$("#formTexto").text(texto);
+		$("#formId").text(id);
+		//var url = "mensajes/"+id;
+		/*$.ajax({
 			type:'POST',
 			headers: {Accept: 'application/json'},
 			url: url,
@@ -19,7 +23,7 @@ $(document).ready(function(){
 				$("#formVersion").val(data.version);
 				//$("#contenedorFormulario").show();
 			}
-		});
+		});*/
 	});
 
 	$("body").on("click","#botonBorrarFormulario", function(event){
@@ -68,13 +72,10 @@ $(document).ready(function(){
 
 	$("body").on("click","#botonAjaxEditar", function(event){
 		var id = $("#formId").val();
-		
 		var texto = $("#formTexto").val();
-		
 		var version = $("#formVersion").val();
-		var url = "mensajes/"+id;
-		//var data = "{'id':"+id+",'nombre':'"+nombre+"','documento':'"+documento+"', 'version':"+version+"}";
-		var data = JSON.stringify(data = {id: id, texto:texto,  version: version});
+		var url = "mensajes/editar/";
+		var data = JSON.stringify(data = {id:id, texto:texto, version:version});
 		$.ajax({
 			type:'PUT',
 			headers: {Accept: 'application/json'},
@@ -107,7 +108,7 @@ $(document).ready(function(){
 								"<td>"+mensaje.texto+"</td>" +
 								"<td>"+mensaje.fecha+"</td>" +
 								"<td><div id='botonAjaxBorrar' class='btn btn-danger' data-objid='"+mensaje.id+"'>Borrar</div></td>" +
-								"<td><div id='botonAjax' class='btn btn-danger' data-objid='"+mensaje.id+"'>Ver</div></td>" +
+								"<td><div id='botonAjax' class='btn btn-danger' data-objid='"+mensaje.id+"' data-texto='"+mensaje.texto+"'>Ver</div></td>" +
 							"</tr>";
 				});
 				$("#contenidoTabla").html(datoHTML);

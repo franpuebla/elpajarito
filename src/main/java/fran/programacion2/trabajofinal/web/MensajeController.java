@@ -22,6 +22,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,6 +35,22 @@ import org.springframework.roo.addon.web.mvc.controller.json.RooWebJson;
 @RooWebJson(jsonObject = Mensaje.class)
 public class MensajeController {
 
+	
+	@RequestMapping(value= "/editar", method = RequestMethod.PUT, headers = "Accept=application/json")
+	 public String editar(@RequestBody String json) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json");
+        Mensaje mensaje = Mensaje.fromJsonToMensaje(json);
+        Mensaje mensajeViejo = Mensaje.findMensaje(mensaje.getId());
+        mensajeViejo.setTexto(mensaje.getTexto());
+        mensajeViejo.merge();
+        //return new ResponseEntity<String>(headers, HttpStatus.OK);
+        return "controla/listar";
+    }
+	
+	
+	
+	
 	
 	@RequestMapping(value= "/getAll")
     @ResponseBody
@@ -119,4 +136,13 @@ public class MensajeController {
             }
         }
     }
+    
+    /*private void parsearLink (Model uiModel, String[] tokens, Mensaje mensaje){
+    	 for (int i = 0; i < tokens.length; i++) {
+             if (tokens[i].contains(".com ")) {
+            	 String subTokens = tokens[i];
+             }
+    	 }
+    	 uiModel.addAttribute("link", subTokens);
+    }*/
 }
