@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div    xmlns:jsp="http://java.sun.com/JSP/Page" 
+		xmlns:spring="http://www.springframework.org/tags" 
+		xmlns:util="urn:jsptagdir:/WEB-INF/tags/jquery/util"
+		xmlns:c="http://java.sun.com/jsp/jstl/core"  
+		xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+		version="2.0">
+		
+		
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <spring:message code="application_name" htmlEscape="false" var="app_name"/>
+    <spring:message arguments="${app_name}" code="welcome_titlepane" htmlEscape="false" var="title"/>
+	
+	<table border="1" id="seguidoresTabla" class="table table-striped" style="text-align:center;">
+  		
+  		<tr>
+		<th>Nombre</th><th>Apellido</th><th>E-Mail</th><th>Usuario</th><th>Estado</th>
+		</tr>
+		<c:forEach var="user" items="${users}">
+			<tr>	
+				<td>${user.firstName}</td>
+				<td>${user.lastName}</td>
+				<td>${user.emailAddress}</td>
+				<td>${user.nick}</td>
+				<td><div id='botonAjaxBorrar' class='btn btn-info' data-objid="${mensaje.id}" >Follow</div></td>
+				
+			</tr>
+		</c:forEach>
+	</table>
+</div>

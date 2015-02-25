@@ -13,4 +13,7 @@
 <definition extends="default" name="seguidoresseguidoses/update">
         <put-attribute name="body" value="/WEB-INF/views/seguidoresseguidoses/update.jspx"/>
     </definition>
+    <definition extends="default" name="seguidoresseguidoses/nuevoSeguidor">
+        <put-attribute name="body" value="/WEB-INF/views/seguidoresseguidoses/nuevoSeguidor.jspx"/>
+    </definition>
 </tiles-definitions>
