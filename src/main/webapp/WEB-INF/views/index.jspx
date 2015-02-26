@@ -46,4 +46,25 @@
 		</c:forEach>
 	</table>
   
+	<div>
+		
+		<table border="1" id="hashTabla" class="table table-condensed" style="text-align:center;">
+            <thead>
+              <tr>
+                <th>#Hash</th>
+              </tr>
+            </thead>
+            <tbody>
+            	<c:forEach var="hashtags" items="${hashtags}">
+					<tr>	
+						<td>#${hashtags.hash}</td>
+					</tr>
+				</c:forEach>
+            </tbody>
+          </table>
+	
+	</div>  
+  
+  
+  
 </div>

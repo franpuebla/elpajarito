@@ -1,5 +1,19 @@
 $(document).ready(function(){
 	
+	$("body").on("click","#botonAjaxSeguir", function(event){
+		var id = $(this).data("objid");
+		var logId = $(this).data("logueado");
+		var url = "seguidoresseguidoses/guardarSeguidor";
+		var data = "{'id':"+id+",'logId':"+logId+"}";
+		$.ajax({
+			type:'POST',
+			url: url,
+			data: data,
+			success: function() {},
+		});
+	});	
+		
+	
 	
 	$("body").on("click","#botonAjax", function(event){
 		var id = $(this).data("objid");

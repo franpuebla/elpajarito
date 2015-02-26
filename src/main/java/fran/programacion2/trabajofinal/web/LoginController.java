@@ -34,6 +34,8 @@ public class LoginController {
 		List<Mensaje> mensajesUser = Mensaje.findAllMensajesforUser(user);
 		
 		List<User> seguidos = SeguidoresSeguidos.findSeguidos(user);
+		
+		List<Hashtag> hash = Hashtag.findAllHashtags();
         
         List<Mensaje> listaGrande = new ArrayList<Mensaje>();
        
@@ -48,6 +50,7 @@ public class LoginController {
     	Collections.sort(listaGrande);
         
         model.addAttribute("mensajes", listaGrande);
+        model.addAttribute("hashtags", hash);
     	
         return "index";
     }
