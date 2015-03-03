@@ -84,7 +84,7 @@ body {
 }
 
 #footer {
-	background:#fff;
+	background:#8a8a8a;
 	border:none;
 	margin-top:15px;
 	border-top:1px solid #999999;
@@ -94,7 +94,7 @@ body {
 	float:left;
 }
 
-#footer a:link {color: #7db223;}
+#footer a:link {color: #86d021;}
 
 .quicklinks {
 	clear:both; 

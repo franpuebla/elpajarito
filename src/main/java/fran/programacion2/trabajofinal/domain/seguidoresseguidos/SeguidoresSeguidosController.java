@@ -11,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,17 +32,34 @@ public class SeguidoresSeguidosController {
 		List<User> seguidos = SeguidoresSeguidos.findSeguidos(user);
 		List<User> todos = User.findAllUsers();
         
-        model.addAttribute("users", todos);
-        model.addAttribute("logueado", user);
-        model.addAttribute("seguidos", seguidos);
+        model.addAttribute("users",todos);
+        model.addAttribute("logueado",user);
+        model.addAttribute("seguidos",seguidos);
     	
         return "seguidoresseguidoses/nuevoSeguidor";
     }
 	
-	@RequestMapping(value="/guardarSeguidor", method = RequestMethod.POST, produces = "text/html")
-    public void createFromJson(@RequestBody String data) {
-        System.out.println("\n\n\nEstoy aca\n"+data);
+	@RequestMapping(value = "/seguir/{id}", method = RequestMethod.GET, produces = "text/html")
+    public String Seguir(@PathVariable("id") Long id)  {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userName = auth.getName(); //get logged in username
+        User userLogueado = User.findUsersByEmailAddress(userName).getSingleResult();
+		User user = User.findUser(id);
+		SeguidoresSeguidos seguidoresSeguidos = new SeguidoresSeguidos();
+		seguidoresSeguidos.setSeguido(user);
+		//seguidoresSeguidos.Delete();
+		seguidoresSeguidos.setSeguidor(userLogueado);
+		seguidoresSeguidos.persist();
 		
-	//	SeguidoresSeguidos seguidoresSeguidos =;
-	}
+    	
+		return "redirect:/seguidoresseguidoses/nuevoSeguidor";
+    }
+
+    /*@RequestMapping(value = "/noSeguir/{user.id}/{logueado.id}", method = RequestMethod.GET)
+    public String NoSeguir(@PathVariable Long idUser, @PathVariable Long idLogueado) {
+        Persona persona = Persona.findPersona(idPersona);
+        Relacion relacion = Relacion.findRelacionsByIdSeguidoEqualsAndPersona(idSeguidor, persona).getSingleResult();
+        relacionService.deleteRelacion(relacion);
+        return "redirect:/personae?find=ByUsuarioLike&usuario=";
+    }*/
 }

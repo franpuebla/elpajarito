@@ -18,7 +18,7 @@
 		<th>Nombre</th><th>Apellido</th><th>E-Mail</th><th>Usuario</th><th>Estado</th>
 		</tr>
 		<c:forEach var="user" items="${users}">
-			<c:forEach var="seguidos" items="${seguidos}">
+			<!-- <c:forEach var="seguidos" items="${seguidos}"> -->
 				<c:if test="${!user.equals(logueado)}">
 					<tr>	
 						<td>${user.firstName}</td>
@@ -26,12 +26,13 @@
 						<td>${user.emailAddress}</td>
 						<td>${user.nick}</td>
 						<c:choose>
-						   	<c:when test="${user.equals(seguidos)}"><td><div id='botonAjaxSeguir' class='btn btn-danger' data-objid="${user.id}" data-logueado="${logueado.id}" >Unfollow</div></td></c:when>
-							<c:otherwise><td><div id='botonAjaxSeguir' class='btn btn-info' data-objid="${user.id}" data-logueado="${logueado.id}" >Follow</div></td></c:otherwise>
+						   	<c:when test="${seguidos.contains(user)}"><td><a class='btn btn-danger' href="${pageContext.request.contextPath}/seguidoresseguidoses/noSeguir/${user.id}/${seguidos.id}" >Unfollow</a></td></c:when>
+							<c:when test="${!seguidos.contains(user)}"><td><a class='btn btn-info' href="${pageContext.request.contextPath}/seguidoresseguidoses/seguir/${user.id}">Follow</a></td></c:when>
+							
 						</c:choose>
 					</tr>
 				</c:if>
-			</c:forEach>
+			<!-- </c:forEach> -->
 		</c:forEach>
 	</table>
 </div>

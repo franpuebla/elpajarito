@@ -6,11 +6,11 @@
 	<jsp:output omit-xml-declaration="yes" />
 
 	<!-- <spring:url var="banner" value="/resources/images/banner-graphic.png" /> -->
-	<spring:url var="logo_roo" value="/resources/images/logo_roo.png" />
-	<spring:url var="logo_spring" value="/resources/images/logo_spring.png" />
+	<spring:url var="twitter" value="/resources/images/twitter.png" />
+	<!-- <spring:url var="logo_spring" value="/resources/images/logo_spring.png" /> -->
 
 	<div class="pull-left hidden-xs">
-		<img src="${logo_roo}" />&#160; <img src="${logo_spring}" />&#160;
+		<img src="${twitter}" />&#160;
 	</div>
 
 	<div class="pull-right">

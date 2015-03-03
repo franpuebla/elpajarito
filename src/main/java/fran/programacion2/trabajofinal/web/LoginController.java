@@ -51,6 +51,7 @@ public class LoginController {
         
         model.addAttribute("mensajes", listaGrande);
         model.addAttribute("hashtags", hash);
+        model.addAttribute("logueado", user);
     	
         return "index";
     }

@@ -36,16 +36,23 @@ import org.springframework.roo.addon.web.mvc.controller.json.RooWebJson;
 public class MensajeController {
 
 	
-	@RequestMapping(value= "/editar", method = RequestMethod.PUT, headers = "Accept=application/json")
-	 public String editar(@RequestBody String json) {
+	@RequestMapping(value= "/{id}", method = RequestMethod.PUT, headers = "Accept=application/json")
+	 public ResponseEntity<String> editar(@RequestBody String json) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
         Mensaje mensaje = Mensaje.fromJsonToMensaje(json);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userName = auth.getName(); //get logged in username
+        mensaje.setAutor(User.findUsersByEmailAddress(userName).getSingleResult());
+        Date date = new Date();
+        mensaje.setFechaPublicacion(date);
+        mensaje.setFecha(date.toString());
+        
         Mensaje mensajeViejo = Mensaje.findMensaje(mensaje.getId());
         mensajeViejo.setTexto(mensaje.getTexto());
         mensajeViejo.merge();
-        //return new ResponseEntity<String>(headers, HttpStatus.OK);
-        return "controla/listar";
+        return new ResponseEntity<String>(headers, HttpStatus.OK);
+        
     }
 	
 	
