@@ -23,10 +23,7 @@ privileged aspect SeguidoresSeguidos_Roo_Jpa_ActiveRecord {
     public static long SeguidoresSeguidos.countSeguidoresSeguidoses() {
         return entityManager().createQuery("SELECT COUNT(o) FROM SeguidoresSeguidos o", Long.class).getSingleResult();
     }
-    public static void SeguidoresSeguidos.Delete(){
-    	 entityManager().createQuery("DELETE FROM seguidores_seguidos WHERE id=2");
-    	
-    }
+    
     public static List<SeguidoresSeguidos> SeguidoresSeguidos.findAllSeguidoresSeguidoses() {
         return entityManager().createQuery("SELECT o FROM SeguidoresSeguidos o", SeguidoresSeguidos.class).getResultList();
     }

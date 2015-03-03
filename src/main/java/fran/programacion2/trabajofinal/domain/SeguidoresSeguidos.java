@@ -26,6 +26,14 @@ public class SeguidoresSeguidos {
     @NotNull
     @ManyToOne
     private User seguido;
+    
+    public static SeguidoresSeguidos findSeguidoresSeguidosById(User idSeguidor, User idSeguido) {
+        EntityManager em = entityManager();
+        TypedQuery<SeguidoresSeguidos> q = em.createQuery("SELECT o FROM SeguidoresSeguidos o WHERE seguidor = :idSeguidor AND seguido = :idSeguido", SeguidoresSeguidos.class);
+        q.setParameter("idSeguidor", idSeguidor);
+        q.setParameter("idSeguido", idSeguido);
+        return q.getSingleResult();
+    }
 
 	public static List<User> findSeguidos(User user) {
     	EntityManager em = entityManager();

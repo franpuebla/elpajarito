@@ -47,7 +47,6 @@ public class SeguidoresSeguidosController {
 		User user = User.findUser(id);
 		SeguidoresSeguidos seguidoresSeguidos = new SeguidoresSeguidos();
 		seguidoresSeguidos.setSeguido(user);
-		//seguidoresSeguidos.Delete();
 		seguidoresSeguidos.setSeguidor(userLogueado);
 		seguidoresSeguidos.persist();
 		
@@ -55,11 +54,14 @@ public class SeguidoresSeguidosController {
 		return "redirect:/seguidoresseguidoses/nuevoSeguidor";
     }
 
-    /*@RequestMapping(value = "/noSeguir/{user.id}/{logueado.id}", method = RequestMethod.GET)
-    public String NoSeguir(@PathVariable Long idUser, @PathVariable Long idLogueado) {
-        Persona persona = Persona.findPersona(idPersona);
-        Relacion relacion = Relacion.findRelacionsByIdSeguidoEqualsAndPersona(idSeguidor, persona).getSingleResult();
-        relacionService.deleteRelacion(relacion);
-        return "redirect:/personae?find=ByUsuarioLike&usuario=";
-    }*/
+    @RequestMapping(value = "/noSeguir/{id}", method = RequestMethod.GET)
+    public String NoSeguir(@PathVariable("id") Long idUser) {
+    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userName = auth.getName(); //get logged in username
+        User userLogueado = User.findUsersByEmailAddress(userName).getSingleResult();
+        User userSeguido = User.findUser(idUser);
+    	SeguidoresSeguidos seguidorSeguido = SeguidoresSeguidos.findSeguidoresSeguidosById(userLogueado, userSeguido);
+    	seguidorSeguido.remove();
+        return "redirect:/seguidoresseguidoses/nuevoSeguidor";
+    }
 }

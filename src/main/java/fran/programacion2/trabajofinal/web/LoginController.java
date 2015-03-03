@@ -1,9 +1,15 @@
 package fran.programacion2.trabajofinal.web;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.IOUtils;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -49,6 +55,8 @@ public class LoginController {
     	listaGrande.addAll(mensajesUser);
     	Collections.sort(listaGrande);
         
+    	//String url = showdoc1(response, model);
+    	//model.addAttribute("url", url);
         model.addAttribute("mensajes", listaGrande);
         model.addAttribute("hashtags", hash);
         model.addAttribute("logueado", user);
@@ -56,5 +64,5 @@ public class LoginController {
         return "index";
     }
 	
-	
+		
 }

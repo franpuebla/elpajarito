@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import fran.programacion2.trabajofinal.domain.Photo;
+import fran.programacion2.trabajofinal.domain.User;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -51,7 +54,20 @@ public class PhotoController {
 	        return show(photo.getId(),model); 
 	       
 	    }
-	     
+	
+	@RequestMapping(value = "showpho", method = RequestMethod.GET)
+	public String showdoc1(HttpServletResponse response,
+	                    Model model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userName = auth.getName(); //get logged in username
+        User userLogueado = User.findUsersByEmailAddress(userName).getSingleResult();
+		if(userLogueado != null){
+        return showdoc(userLogueado.getIdPhoto().getId(), response, model);
+		}
+		else{
+			return "";
+		}
+	}   
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String show(@PathVariable("id") Long id, Model model) {
         Photo pho = Photo.findPhoto(id);
@@ -68,7 +84,7 @@ public class PhotoController {
 	   Photo pho = Photo.findPhoto(id);
 	                 
 	   try {
-	          response.setHeader("Content-Disposition", "inline;filename=\"" +pho.getFilename()+ "\"");
+	          //response.setHeader("Content-Disposition", "inline;filename=\"" +pho.getFilename()+ "\"");
 	 
 	          OutputStream out = response.getOutputStream();
 	          response.setContentType(pho.getContentType());

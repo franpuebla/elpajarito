@@ -12,9 +12,6 @@
 	<div class="pull-left hidden-xs">
 		<img src="${twitter}" />&#160;
 	</div>
-	<div class="pull-left hidden-xs">
-		<img height="64px" src="${pageContext.request.contextPath}/photos/showpho"/>
-	</div>
 
 	<div class="pull-right">
 		<spring:url var="home" value="/" />
