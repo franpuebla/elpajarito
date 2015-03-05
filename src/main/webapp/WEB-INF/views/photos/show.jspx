@@ -10,4 +10,10 @@
     </page:show>
      -->
     <img height="256px" src="showpho/${itemId}"/>
+    <page:show id="ps_fran_programacion2_trabajofinal_domain_Photo" object="${photo}" path="/photos" update="false" z="0h075HZBpcU1LKNa1cgWCsPVlUs=">
+        <field:display field="filename" id="s_fran_programacion2_trabajofinal_domain_Photo_filename" object="${photo}" z="Aoa3rERKIQtIUoVWAOlR2YVK6Xo="/>
+        <field:display field="contentType" id="s_fran_programacion2_trabajofinal_domain_Photo_contentType" object="${photo}" z="MR2FJiXFUl7uvcvtN06+jnd7egM="/>
+        <field:display field="content" id="s_fran_programacion2_trabajofinal_domain_Photo_content" object="${photo}" z="/rF8YISDgfpiRmzG+jzMBvjzlfo="/>
+        <field:display field="url" id="s_fran_programacion2_trabajofinal_domain_Photo_url" object="${photo}" z="rolhHQT+2XkhNzo/qUnlef/AvFU="/>
+    </page:show>
 </div>

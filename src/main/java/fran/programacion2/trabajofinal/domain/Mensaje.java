@@ -50,6 +50,8 @@ public class Mensaje implements Comparable<Mensaje> {
     
     private String fecha;
 
+    private String autorOriginal;
+    
     /**
      */
     @Temporal(TemporalType.TIMESTAMP)

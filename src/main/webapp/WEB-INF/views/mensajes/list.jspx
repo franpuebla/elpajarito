@@ -8,6 +8,7 @@
             <table:column id="c_fran_programacion2_trabajofinal_domain_Mensaje_autor" property="autor" z="JP7l+1SpWbNmcbMN/z+lswkbaOs="/>
             <table:column date="true" dateTimePattern="${mensaje_fechapublicacion_date_format}" id="c_fran_programacion2_trabajofinal_domain_Mensaje_fechaPublicacion" property="fechaPublicacion" z="OrQ6wAbCm78wH2fbwfbBIu6NFnw="/>
             <table:column id="c_fran_programacion2_trabajofinal_domain_Mensaje_fecha" property="fecha" z="tbeSrHDz3s6dpHJEHaADiBF/xgc="/>
+            <table:column id="c_fran_programacion2_trabajofinal_domain_Mensaje_autorOriginal" property="autorOriginal" z="Jkk4kc3lipkCnaAMfpCCAUvnkHo="/>
         </table:table>
     </page:list>
 </div>

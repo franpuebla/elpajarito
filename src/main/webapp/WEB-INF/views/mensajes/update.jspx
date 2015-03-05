@@ -9,5 +9,6 @@
         <field:simple field="hashtag" id="c_fran_programacion2_trabajofinal_domain_Mensaje_hashtag" messageCode="entity_reference_not_managed" messageCodeAttribute="Hashtag" z="LgCUmhNoYLiY0Gw0mEgi2SKcKBM="/>
         <field:simple field="referencias" id="c_fran_programacion2_trabajofinal_domain_Mensaje_referencias" messageCode="entity_reference_not_managed" messageCodeAttribute="Referencia" z="qTs/NIlAWo2perssPpVVo9W9hWM="/>
         <field:input field="fecha" id="c_fran_programacion2_trabajofinal_domain_Mensaje_fecha" z="EEdOfhtiejbnjfJM8fDmBQCgLGQ="/>
+        <field:input field="autorOriginal" id="c_fran_programacion2_trabajofinal_domain_Mensaje_autorOriginal" z="RHAPpmwjnm40yg4ogcUQVHYF9LM="/>
     </form:update>
 </div>

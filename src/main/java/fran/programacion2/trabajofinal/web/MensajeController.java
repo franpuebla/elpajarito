@@ -56,6 +56,24 @@ public class MensajeController {
     }
 	
 	
+	@RequestMapping(value= "/rePublicar", method = RequestMethod.POST, headers = "Accept=application/json")
+    public ResponseEntity<String> createFromJson2(@RequestBody String json) {
+        Mensaje mensaje = Mensaje.fromJsonToMensaje(json);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userName = auth.getName(); //get logged in username
+        
+        Mensaje mensajeViejo = Mensaje.findMensaje(mensaje.getId());
+        mensaje.setAutorOriginal(mensajeViejo.getAutorOriginal());
+        mensaje.setAutor(User.findUsersByEmailAddress(userName).getSingleResult());
+        Date date = new Date();
+        mensaje.setFechaPublicacion(date);
+        mensaje.setFecha(date.toString());
+        mensaje.persist();
+        parsearMensaje(mensaje);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json");
+        return new ResponseEntity<String>(headers, HttpStatus.CREATED);
+    }
 	
 	
 	
@@ -95,6 +113,7 @@ public class MensajeController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userName = auth.getName(); //get logged in username
         mensaje.setAutor(User.findUsersByEmailAddress(userName).getSingleResult());
+        mensaje.setAutorOriginal(userName);
         Date date = new Date();
         mensaje.setFechaPublicacion(date);
         mensaje.setFecha(date.toString());

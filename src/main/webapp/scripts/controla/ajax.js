@@ -69,6 +69,25 @@ $(document).ready(function(){
 			}
 		});
 	});
+	
+	$("body").on("click","#botonAjaxRePublicar", function(event){
+		var id = $(this).data("objid");
+		var autorOriginal = $(this).data("autorOriginal");
+		var texto = $(this).data("texto");
+		var url = "mensajes/rePublicar";
+		var data = JSON.stringify({id:id, autorOriginal:autorOriginal, texto:texto});
+		$.ajax({
+			type:'POST',
+			contentType: 'application/json',
+			headers: {Accept: 'application/json'},
+			url: url,
+			data: data,
+			success: function() {},
+			complete: function() {
+				cargarLista();
+			}
+		});
+	});
 
 	$("body").on("click","#botonAjaxEditar", function(event){
 		var id = $("#formId").val();
@@ -101,21 +120,22 @@ $(document).ready(function(){
 			url: url,
 			data: {},
 			success: function(data) {
-				var datoHTML = "<tr><th>Autor</th><th>Texto</th><th>Fecha de Publicacion</th></tr>";
+				var datoHTML = "<tr><th>Autor</th><th>Autor Original</th><th>Texto</th><th>Fecha de Publicacion</th></tr>";
 				$.each(data, function(i, mensaje){
 					datoHTML += "" +
 							"<tr>" +
-								"<td>"+mensaje.autor.emailAddress+"</td>" +
+								"<td>"+mensaje.autor.nick+"</td>" +
+								"<td>"+mensaje.autorOriginal+"</td>" +
 								"<td>"+mensaje.texto+"</td>" +
 								"<td>"+mensaje.fecha+"</td>" ;
 								console.log(mensaje.autor.id);
 								console.log($("#idLogueado").val());
 								if (mensaje.autor.id == $("#idLogueado").val()) {
-									datoHTML += ""+"<td><div id='botonAjaxBorrar' class='btn btn-danger' data-objid='"+mensaje.id+"'>Borrar</div></td>" +
-									"<td><div id='botonAjax' class='btn btn-danger' data-objid='"+mensaje.id+"' data-texto='"+mensaje.texto+"'>Ver</div></td>"+
+									datoHTML += ""+"<td style='border:0px;'><div id='botonAjaxBorrar' class='btn btn-danger' data-objid='"+mensaje.id+"'>Borrar</div></td>" +
+									"<td style='border:0px;'><div id='botonAjax' class='btn btn-danger' data-objid='"+mensaje.id+"' data-texto='"+mensaje.texto+"'>Ver</div></td>"+
 									"</tr>";
 									} else {
-										datoHTML += ""+"<td><div id='botonAjax' class='btn btn-info' data-objid='"+mensaje.id+"'>RePublicar</div></td>"+
+										datoHTML += ""+"<td style='border:0px;'><div id='botonAjaxRePublicar' class='btn btn-info' data-autorOriginal='"+mensaje.autorOriginal+" 'data-texto='"+mensaje.texto+" 'data-objid='"+mensaje.id+"'>RePublicar</div></td>"+
 								    	"</tr>";
 									}
 								

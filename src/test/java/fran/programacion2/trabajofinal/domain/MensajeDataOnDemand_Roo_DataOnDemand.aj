@@ -34,6 +34,7 @@ privileged aspect MensajeDataOnDemand_Roo_DataOnDemand {
     public Mensaje MensajeDataOnDemand.getNewTransientMensaje(int index) {
         Mensaje obj = new Mensaje();
         setAutor(obj, index);
+        setAutorOriginal(obj, index);
         setFecha(obj, index);
         setFechaPublicacion(obj, index);
         setTexto(obj, index);
@@ -43,6 +44,11 @@ privileged aspect MensajeDataOnDemand_Roo_DataOnDemand {
     public void MensajeDataOnDemand.setAutor(Mensaje obj, int index) {
         User autor = userDataOnDemand.getRandomUser();
         obj.setAutor(autor);
+    }
+    
+    public void MensajeDataOnDemand.setAutorOriginal(Mensaje obj, int index) {
+        String autorOriginal = "autorOriginal_" + index;
+        obj.setAutorOriginal(autorOriginal);
     }
     
     public void MensajeDataOnDemand.setFecha(Mensaje obj, int index) {

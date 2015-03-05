@@ -78,7 +78,7 @@ public class SignUpController {
         	
         //   return createForm(model);
         //} else {
-    	// TODO HACER CHECKEO A MANOPLA
+    	
     	
             Random random = new Random(System.currentTimeMillis());
             String activationKey = "activationKey:" + random.nextInt();

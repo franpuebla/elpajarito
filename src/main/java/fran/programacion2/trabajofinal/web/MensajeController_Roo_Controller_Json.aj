@@ -38,8 +38,8 @@ privileged aspect MensajeController_Roo_Controller_Json {
         return new ResponseEntity<String>(headers, HttpStatus.CREATED);
     }
     
-   // @RequestMapping(value = "/{id}", method = RequestMethod.PUT, headers = "Accept=application/json")
-   /* public ResponseEntity<String> MensajeController.updateFromJson(@RequestBody String json, @PathVariable("id") Long id) {
+   /* @RequestMapping(value = "/{id}", method = RequestMethod.PUT, headers = "Accept=application/json")
+    public ResponseEntity<String> MensajeController.updateFromJson(@RequestBody String json, @PathVariable("id") Long id) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
         Mensaje mensaje = Mensaje.fromJsonToMensaje(json);

@@ -52,17 +52,18 @@
    <table border="1" id="mesajeTable" class="table table-striped" style="text-align:center;">
   		<TBODY id="contenidoTabla"></TBODY>
   		<tr>
-		<th>Autor</th><th>Texto</th><th>Fecha de Publicacion</th>
+		<th>Autor</th><th>Autor Original</th><th>Texto</th><th>Fecha de Publicacion</th>
 		</tr>
 		<c:forEach var="mensaje" items="${mensajes}">
 			<tr>	
-				<td>${mensaje.autor.emailAddress}</td>
+				<td>${mensaje.autor.nick}</td>
+				<td>${mensaje.autorOriginal}</td>
 				<td>${mensaje.texto}</td>
 				<td>${mensaje.fecha}</td>
 				<c:choose>
-					<c:when test="${mensaje.autor.equals(logueado)}"><td><div id='botonAjaxBorrar' class='btn btn-danger' data-objid="${mensaje.id}" >Borrar</div></td>
-																	 <td><div id='botonAjax' class='btn btn-danger' data-objid="${mensaje.id}" data-texto="${mensaje.texto}" >Ver</div></td></c:when>
-					<c:otherwise><td><div id='botonAjax' class='btn btn-info' data-objid="${user.id}" data-logueado="${logueado.id}" >RePublicar</div></td></c:otherwise>
+					<c:when test="${mensaje.autor.equals(logueado)}"><td style="border:0px;"><div id='botonAjaxBorrar' class='btn btn-danger' data-objid="${mensaje.id}" >Borrar</div></td>
+																	 <td style="border:0px;"><div id='botonAjax' class='btn btn-danger' data-objid="${mensaje.id}" data-texto="${mensaje.texto}" >Ver</div></td></c:when>
+					<c:otherwise><td style="border:0px;"><div id='botonAjaxRePublicar' class='btn btn-info' data-texto="${mensaje.texto}" data-autorOriginal="${mensaje.autorOriginal}" data-objid="${mensaje.id}">RePublicar</div></td></c:otherwise>
 				</c:choose>
 			</tr>
 		</c:forEach>
